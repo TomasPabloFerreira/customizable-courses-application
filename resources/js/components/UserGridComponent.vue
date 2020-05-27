@@ -1,0 +1,133 @@
+<template>
+    <b-container fluid>
+        <b-row>
+            <b-col>
+                <b-form-select
+                    v-model="perPage"
+                    id="perPageSelect"
+                    size="sm"
+                    :options="pageOptions"
+                ></b-form-select>
+            </b-col>
+            <b-col>
+            </b-col>
+            <b-col>
+                <!-- Search input -->
+                <b-form-input
+                    v-model="criteria"
+                    placeholder="Search"
+                ></b-form-input>
+            </b-col>
+        </b-row>
+        <b-row class="mt-3">
+            <b-col overflow-auto>
+                <!-- Table -->
+                <b-table
+                    id="users-table"
+                    :current-page="currentPage"
+                    striped
+                    hover
+                    :items="users"
+                    :fields="fields"
+                    :filter="criteria"
+                    :perPage="perPage"
+                    responsive
+                >
+                    <!-- actions -->
+                    <template v-slot:cell(actions)="row">
+                        <b-button
+                            size="sm"
+                            variant="success"
+                            class="mr-1"
+                            :href="row.item.id + '/edit'"
+                        >
+                            <b-icon-pencil-square
+                                width="1.4em"
+                                height="1.4em"
+                            ></b-icon-pencil-square>
+                        </b-button>
+                        <b-button
+                            size="sm"
+                            variant="danger"
+                            class="mr-1"
+                        >
+                            <b-icon-person-dash-fill
+                                width="1.4em"
+                                height="1.4em"
+                            ></b-icon-person-dash-fill>
+                        </b-button>
+                    </template>
+                </b-table>
+
+                <b-row>
+                    <b-col>
+                        <!-- Paginator -->
+                        <b-pagination
+                            v-model="currentPage"
+                            :total-rows="rows"
+                            :per-page="perPage"
+                            aria-controls="users-table"
+                        ></b-pagination>
+                    </b-col>
+                    <b-col class="text-right">
+                        <p class="mt-3">
+                            Current Page: {{ currentPage }} of {{ rows }}
+                        </p>
+                    </b-col>
+                </b-row>
+            </b-col>
+        </b-row>
+    </b-container>
+</template>
+
+<script>
+export default {
+    props: ["users"],
+    data() {
+        return {
+            pageOptions: [5, 10, 25, 50, 100],
+            currentPage: 1,
+            perPage: 10,
+            criteria: "",
+            fields: [
+                {
+                    key: "name",
+                    label: "Name",
+                    sortable: true,
+                },
+                {
+                    key: "surname",
+                    label: "Surname",
+                    sortable: true,
+                },
+                {
+                    key: "role_id",
+                    label: "Role",
+                    sortable: true,
+                },
+                {
+                    key: "email",
+                    label: "Email",
+                    sortable: true,
+                },
+                {
+                    key: "created_at",
+                    label: "Creation Date",
+                    sortable: true,
+                },
+                {
+                    key: "updated_at",
+                    label: "Last Update Date",
+                    sortable: true,
+                },
+                { key: "actions", label: "Actions", sortable: false }
+            ]
+        };
+    },
+    computed: {
+        rows() {
+            return this.users.length;
+        }
+    }
+};
+</script>

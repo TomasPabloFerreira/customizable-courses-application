@@ -9,9 +9,12 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-import BootstrapVue from 'bootstrap-vue'
+import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 
 Vue.use(BootstrapVue)
+Vue.use(BootstrapVueIcons)
+
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 /**
  * The following block of code may be used to automatically register your
@@ -25,6 +28,7 @@ Vue.use(BootstrapVue)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('user-grid', require('./components/UserGridComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
