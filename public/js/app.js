@@ -2023,6 +2023,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["users"],
   data: function data() {
@@ -2061,6 +2074,15 @@ __webpack_require__.r(__webpack_exports__);
         sortable: false
       }]
     };
+  },
+  methods: {
+    deleteUser: function deleteUser(userId) {
+      var confirmation = confirm('are you sure you want to delete this user?');
+
+      if (confirmation) {
+        window.location.replace(userId + '/delete');
+      }
+    }
   },
   computed: {
     rows: function rows() {
@@ -81124,7 +81146,12 @@ var render = function() {
                           "b-button",
                           {
                             staticClass: "mr-1",
-                            attrs: { size: "sm", variant: "danger" }
+                            attrs: { size: "sm", variant: "danger" },
+                            on: {
+                              click: function($event) {
+                                return _vm.deleteUser(row.item.id)
+                              }
+                            }
                           },
                           [
                             _c("b-icon-person-dash-fill", {
@@ -81163,14 +81190,34 @@ var render = function() {
                     1
                   ),
                   _vm._v(" "),
+                  _c(
+                    "b-col",
+                    { staticClass: "text-center" },
+                    [
+                      _c(
+                        "b-button",
+                        {
+                          staticClass: "mt-1",
+                          attrs: {
+                            size: "lg",
+                            variant: "primary",
+                            href: "user/add"
+                          }
+                        },
+                        [_vm._v("\n\t\t\t\t\tAdd User\n\t\t\t\t")]
+                      )
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
                   _c("b-col", { staticClass: "text-right" }, [
                     _c("p", { staticClass: "mt-3" }, [
                       _vm._v(
-                        "\n                        Current Page: " +
+                        "\n                           \t\tCurrent Page: " +
                           _vm._s(_vm.currentPage) +
                           " of " +
                           _vm._s(_vm.rows) +
-                          "\n                    "
+                          "\n                \t\t"
                       )
                     ])
                   ])

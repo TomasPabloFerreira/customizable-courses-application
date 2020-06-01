@@ -50,6 +50,7 @@
                             size="sm"
                             variant="danger"
                             class="mr-1"
+			    @click="deleteUser(row.item.id)"
                         >
                             <b-icon-person-dash-fill
                                 width="1.4em"
@@ -60,20 +61,32 @@
                 </b-table>
 
                 <b-row>
-                    <b-col>
-                        <!-- Paginator -->
-                        <b-pagination
-                            v-model="currentPage"
-                            :total-rows="rows"
-                            :per-page="perPage"
-                            aria-controls="users-table"
-                        ></b-pagination>
-                    </b-col>
-                    <b-col class="text-right">
-                        <p class="mt-3">
-                            Current Page: {{ currentPage }} of {{ rows }}
-                        </p>
-                    </b-col>
+                    	<b-col>
+                        	<!-- Paginator -->
+                        	<b-pagination
+                            	v-model="currentPage"
+                           	:total-rows="rows"
+                            	:per-page="perPage"
+                            	aria-controls="users-table"
+                        	></b-pagination>
+                    	</b-col>
+		    
+			<b-col class="text-center">
+				<b-button 
+					size="lg"
+					variant="primary"
+					class="mt-1"
+					href="user/add"		
+				>
+					Add User
+				</b-button>
+			</b-col>
+
+                    	<b-col class="text-right">
+                        	<p class="mt-3">
+                           		Current Page: {{ currentPage }} of {{ rows }}
+                		</p>
+                    	</b-col>
                 </b-row>
             </b-col>
         </b-row>
@@ -123,6 +136,14 @@ export default {
                 { key: "actions", label: "Actions", sortable: false }
             ]
         };
+    },
+    methods: {
+	deleteUser: (userId) => {
+		let confirmation = confirm('are you sure you want to delete this user?');
+		if(confirmation) {
+			window.location.replace(userId + '/delete');
+		}
+	}
     },
     computed: {
         rows() {
