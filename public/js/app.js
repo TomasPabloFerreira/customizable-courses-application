@@ -2202,7 +2202,7 @@ __webpack_require__.r(__webpack_exports__);
         label: "Surname",
         sortable: true
       }, {
-        key: "role_id",
+        key: "role.name",
         label: "Role",
         sortable: true
       }, {

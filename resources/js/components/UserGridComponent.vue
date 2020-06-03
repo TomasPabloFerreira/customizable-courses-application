@@ -114,7 +114,7 @@ export default {
                     sortable: true,
                 },
                 {
-                    key: "role_id",
+                    key: "role.name",
                     label: "Role",
                     sortable: true,
                 },

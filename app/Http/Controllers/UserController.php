@@ -23,17 +23,18 @@ class UserController extends Controller
 	 */
 	public function index()
 	{
-        return view('user.grid', [
-			'users' => User::get([
-				'id',
-				'name',
-				'surname',
-				'role_id',
-				'email',
-				'created_at',
-				'updated_at',
-			]),
-		]);
+		$users = User::with('role')
+					->get([
+						'id',
+						'name',
+						'surname',
+						'role_id',
+						'email',
+						'created_at',
+						'updated_at',
+					]);
+
+        return view('user.grid', ['users' => $users]);
     }
 
 	public function edit($id)
