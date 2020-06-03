@@ -13,7 +13,7 @@
     	</b-row>
 	<b-row class="justify-content-md-center">
         	<b-col cols="12">
-            		<user-grid :users="{{$users}}"></user-grid>
+            		<user-grid :users='@json($users)'></user-grid>
         	</b-col>
 	</b-row>
 

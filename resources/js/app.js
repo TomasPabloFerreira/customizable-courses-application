@@ -29,6 +29,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('user-grid', require('./components/UserGridComponent.vue').default);
+Vue.component('user-form', require('./components/UserFormComponent.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
