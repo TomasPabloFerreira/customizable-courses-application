@@ -37,6 +37,10 @@ class UserController extends Controller
         return view('user.grid', ['users' => $users]);
     }
 
+	public function create() {
+		return view('user.form');
+	}
+
 	public function edit($id)
 	{
 		return view('user.form', [

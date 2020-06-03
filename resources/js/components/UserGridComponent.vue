@@ -76,9 +76,9 @@
 							size="lg"
 							variant="primary"
 							class="mt-1"
-							href="user/add"		
+							href="user/create"		
 						>
-							Add User
+							Create User
 						</b-button>
 					</b-col>
 

@@ -11,7 +11,7 @@
 						>
 					</b-input>
 					<b-form-invalid-feedback :state="validName">
-						User name must be 6-32 characters long.
+						User name must be 3-32 characters long.
 					</b-form-invalid-feedback>
 					<b-form-valid-feedback :state="validName">
 						Looks Good.
@@ -26,7 +26,7 @@
 						>
 					</b-input>
 					<b-form-invalid-feedback :state="validSurname">
-						User surname must be 6-32 characters long.
+						User surname must be 3-32 characters long.
 					</b-form-invalid-feedback>
 					<b-form-valid-feedback :state="validSurname">
 						Looks Good.
@@ -114,10 +114,10 @@ export default {
 	},
 	computed: {
 		validName() {
-			return this.name.length >= 6 && this.name.length <= 32; 
+			return this.name.length >= 3 && this.name.length <= 32; 
 		},
 		validSurname() {
-			return this.surname.length >= 6 && this.surname.length <= 32; 
+			return this.surname.length >= 3 && this.surname.length <= 32; 
 		},
 		validEmail() {
 			const regularExp = /\S+@\S+\.\S+/;
@@ -131,9 +131,11 @@ export default {
 		}
 	},
 	mounted () {
-		this.name = this.user.name;
-		this.surname = this.user.surname;
-		this.email = this.user.email;
+		if(typeof this.user != 'undefined') {
+			this.name = this.user.name;
+			this.surname = this.user.surname;
+			this.email = this.user.email;
+		}
 	}
 };
 </script>

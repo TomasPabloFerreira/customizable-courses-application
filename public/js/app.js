@@ -2056,10 +2056,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   computed: {
     validName: function validName() {
-      return this.name.length >= 6 && this.name.length <= 32;
+      return this.name.length >= 3 && this.name.length <= 32;
     },
     validSurname: function validSurname() {
-      return this.surname.length >= 6 && this.surname.length <= 32;
+      return this.surname.length >= 3 && this.surname.length <= 32;
     },
     validEmail: function validEmail() {
       var regularExp = /\S+@\S+\.\S+/;
@@ -2073,9 +2073,11 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   mounted: function mounted() {
-    this.name = this.user.name;
-    this.surname = this.user.surname;
-    this.email = this.user.email;
+    if (typeof this.user != 'undefined') {
+      this.name = this.user.name;
+      this.surname = this.user.surname;
+      this.email = this.user.email;
+    }
   }
 });
 
@@ -81238,7 +81240,7 @@ var render = function() {
                     { attrs: { state: _vm.validName } },
                     [
                       _vm._v(
-                        "\n\t\t\t\t\tUser name must be 6-32 characters long.\n\t\t\t\t"
+                        "\n\t\t\t\t\tUser name must be 3-32 characters long.\n\t\t\t\t"
                       )
                     ]
                   ),
@@ -81276,7 +81278,7 @@ var render = function() {
                     { attrs: { state: _vm.validSurname } },
                     [
                       _vm._v(
-                        "\n\t\t\t\t\tUser surname must be 6-32 characters long.\n\t\t\t\t"
+                        "\n\t\t\t\t\tUser surname must be 3-32 characters long.\n\t\t\t\t"
                       )
                     ]
                   ),
@@ -81630,10 +81632,10 @@ var render = function() {
                           attrs: {
                             size: "lg",
                             variant: "primary",
-                            href: "user/add"
+                            href: "user/create"
                           }
                         },
-                        [_vm._v("\n\t\t\t\t\t\t\tAdd User\n\t\t\t\t\t\t")]
+                        [_vm._v("\n\t\t\t\t\t\t\tCreate User\n\t\t\t\t\t\t")]
                       )
                     ],
                     1
