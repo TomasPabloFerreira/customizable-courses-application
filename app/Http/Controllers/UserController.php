@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Role;
 
 class UserController extends Controller
 {
@@ -34,19 +35,19 @@ class UserController extends Controller
 						'updated_at',
 					]);
 
-        return view('user.grid', ['users' => $users]);
+		return view('user.grid', ['users' => $users]);
     }
 
 	public function create() {
-		return view('user.form');
+		return view('user.form', ['roles' => Role::getSelector()]);
 	}
 
 	public function edit($id)
 	{
+		$user = User::findOrFail($id, ['name', 'surname', 'email', 'role_id']);
 		return view('user.form', [
-			'user' => User::findOrFail($id, [
-				'name', 'surname', 'email', 'role_id' 
-			])
+			'user' => $user,
+			'roles' => Role::getSelector()
 		]);
 	}
 }

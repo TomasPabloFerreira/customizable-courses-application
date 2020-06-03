@@ -49,6 +49,22 @@
 					</b-form-valid-feedback>
 				</b-col>
 				<b-col class="mt-3">
+					<label for="roleSelector">Role</label>
+					<b-form-select
+						:options="roles"
+						v-model="selectedRole"
+						:state="roleIsSelected"
+					>
+					</b-form-select>
+					<b-form-invalid-feedback :state="roleIsSelected">
+						Select a role.
+					</b-form-invalid-feedback>
+					<b-form-valid-feedback :state="roleIsSelected">
+						Looks Good.
+					</b-form-valid-feedback>
+
+				</b-col>
+				<b-col class="mt-3">
 					<label for="password">Password</label>
 					<b-input
 						v-model="password"
@@ -100,7 +116,7 @@
 
 <script>
 export default {
-    props: ["user"],
+    props: ['roles', 'user'],
 	data: () => {
 		return {
 			name: '',
@@ -108,7 +124,7 @@ export default {
 			email: '',
 			password: '',
 			passwordConfirmation: '',
-			roleId: '',
+			selectedRole: null,
 			csrf: document.head.querySelector('meta[name="csrf-token"]').content
 		}
 	},
@@ -128,7 +144,13 @@ export default {
 		},
 		passwordsMatch() {
 			return this.password === this.passwordConfirmation;
+		},
+		roleIsSelected() {
+			return this.selectedRole !== null;
 		}
+	},
+	beforeMount () {
+		this.roles.unshift({ value: null, text: 'Select an option'});
 	},
 	mounted () {
 		if(typeof this.user != 'undefined') {

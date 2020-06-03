@@ -20,11 +20,12 @@
 	<b-row class="justify-content-md-center mt-4">
 		<b-col cols="12">
 			@isset($user)
-				<user-form :user='@json($user)'></user-form>
+				<user-form :roles='@json($roles)' :user='@json($user)'>
+				</user-form>
 			@endisset
 
 			@empty($user)
-				<user-form></user-form>
+				<user-form :roles='@json($roles)' ></user-form>
 			@endempty
 		</b-col>
 	</b-row>

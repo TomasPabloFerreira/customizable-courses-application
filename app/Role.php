@@ -23,4 +23,9 @@ class Role extends Model
 	{
 		return $this->hasMany('App\User');
 	}
+
+	public static function getSelector()
+	{
+		return self::get(['id as value', 'name as text']);
+	}
 }

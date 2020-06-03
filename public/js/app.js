@@ -2041,8 +2041,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["user"],
+  props: ['roles', 'user'],
   data: function data() {
     return {
       name: '',
@@ -2050,7 +2066,7 @@ __webpack_require__.r(__webpack_exports__);
       email: '',
       password: '',
       passwordConfirmation: '',
-      roleId: '',
+      selectedRole: null,
       csrf: document.head.querySelector('meta[name="csrf-token"]').content
     };
   },
@@ -2070,7 +2086,16 @@ __webpack_require__.r(__webpack_exports__);
     },
     passwordsMatch: function passwordsMatch() {
       return this.password === this.passwordConfirmation;
+    },
+    roleIsSelected: function roleIsSelected() {
+      return this.selectedRole !== null;
     }
+  },
+  beforeMount: function beforeMount() {
+    this.roles.unshift({
+      value: null,
+      text: 'Select an option'
+    });
   },
   mounted: function mounted() {
     if (typeof this.user != 'undefined') {
@@ -81326,6 +81351,40 @@ var render = function() {
                   _c(
                     "b-form-valid-feedback",
                     { attrs: { state: _vm.validEmail } },
+                    [_vm._v("\n\t\t\t\t\tLooks Good.\n\t\t\t\t")]
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "b-col",
+                { staticClass: "mt-3" },
+                [
+                  _c("label", { attrs: { for: "roleSelector" } }, [
+                    _vm._v("Role")
+                  ]),
+                  _vm._v(" "),
+                  _c("b-form-select", {
+                    attrs: { options: _vm.roles, state: _vm.roleIsSelected },
+                    model: {
+                      value: _vm.selectedRole,
+                      callback: function($$v) {
+                        _vm.selectedRole = $$v
+                      },
+                      expression: "selectedRole"
+                    }
+                  }),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-invalid-feedback",
+                    { attrs: { state: _vm.roleIsSelected } },
+                    [_vm._v("\n\t\t\t\t\tSelect a role.\n\t\t\t\t")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "b-form-valid-feedback",
+                    { attrs: { state: _vm.roleIsSelected } },
                     [_vm._v("\n\t\t\t\t\tLooks Good.\n\t\t\t\t")]
                   )
                 ],
