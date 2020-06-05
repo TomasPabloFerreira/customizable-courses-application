@@ -26,3 +26,6 @@ Route::get('/user', 'UserController@index')->name('user.index');
 Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
 
 Route::get('/user/create', 'UserController@create')->name('user.create');
+
+Route::post('/user', 'UserController@store')->name('user.store');
+

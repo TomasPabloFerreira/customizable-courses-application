@@ -2058,6 +2058,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['roles', 'user'],
   data: function data() {
@@ -2131,8 +2137,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -81260,7 +81264,7 @@ var render = function() {
                   _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
                   _vm._v(" "),
                   _c("b-input", {
-                    attrs: { state: _vm.validName, id: "name" },
+                    attrs: { state: _vm.validName, id: "name", name: "name" },
                     model: {
                       value: _vm.name,
                       callback: function($$v) {
@@ -81298,7 +81302,11 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("b-input", {
-                    attrs: { state: _vm.validSurname, id: "surname" },
+                    attrs: {
+                      state: _vm.validSurname,
+                      id: "surname",
+                      name: "surname"
+                    },
                     model: {
                       value: _vm.surname,
                       callback: function($$v) {
@@ -81337,6 +81345,7 @@ var render = function() {
                     attrs: {
                       state: _vm.validEmail,
                       id: "email",
+                      name: "email",
                       type: "email"
                     },
                     model: {
@@ -81376,7 +81385,12 @@ var render = function() {
                   ]),
                   _vm._v(" "),
                   _c("b-form-select", {
-                    attrs: { options: _vm.roles, state: _vm.roleIsSelected },
+                    attrs: {
+                      options: _vm.roles,
+                      state: _vm.roleIsSelected,
+                      id: "role",
+                      name: "role"
+                    },
                     model: {
                       value: _vm.selectedRole,
                       callback: function($$v) {
@@ -81413,6 +81427,7 @@ var render = function() {
                     attrs: {
                       state: _vm.validPassword,
                       id: "password",
+                      name: "password",
                       type: "password"
                     },
                     model: {
@@ -81635,7 +81650,6 @@ var render = function() {
                         _c(
                           "b-button",
                           {
-                            staticClass: "mr-1",
                             attrs: {
                               size: "sm",
                               variant: "success",
@@ -81644,7 +81658,7 @@ var render = function() {
                           },
                           [
                             _c("b-icon-pencil-square", {
-                              attrs: { width: "1.4em", height: "1.4em" }
+                              attrs: { width: "1em", height: "1.4em" }
                             })
                           ],
                           1
@@ -81653,7 +81667,6 @@ var render = function() {
                         _c(
                           "b-button",
                           {
-                            staticClass: "mr-1",
                             attrs: { size: "sm", variant: "danger" },
                             on: {
                               click: function($event) {
@@ -81663,7 +81676,7 @@ var render = function() {
                           },
                           [
                             _c("b-icon-person-dash-fill", {
-                              attrs: { width: "1.4em", height: "1.4em" }
+                              attrs: { width: "1em", height: "1.4em" }
                             })
                           ],
                           1

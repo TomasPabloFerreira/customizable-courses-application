@@ -38,22 +38,20 @@
                         <b-button
                             size="sm"
                             variant="success"
-                            class="mr-1"
                             :href="'user/' + row.item.id + '/edit'"
                         >
                             <b-icon-pencil-square
-                                width="1.4em"
+                                width="1em"
                                 height="1.4em"
                             ></b-icon-pencil-square>
                         </b-button>
                         <b-button
                             size="sm"
                             variant="danger"
-                            class="mr-1"
 							@click="deleteUser(row.item.id)"
                         >
                             <b-icon-person-dash-fill
-                                width="1.4em"
+                                width="1em"
                                 height="1.4em"
                             ></b-icon-person-dash-fill>
                         </b-button>

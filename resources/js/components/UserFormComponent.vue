@@ -8,6 +8,7 @@
 						v-model="name"
 						:state="validName"
 						id="name"
+						name="name"
 						>
 					</b-input>
 					<b-form-invalid-feedback :state="validName">
@@ -23,6 +24,7 @@
 						v-model="surname"
 						:state="validSurname"
 						id="surname"
+						name="surname"
 						>
 					</b-input>
 					<b-form-invalid-feedback :state="validSurname">
@@ -38,6 +40,7 @@
 						v-model="email"
 						:state="validEmail"
 						id="email"
+						name="email"
 						type="email"
 						>
 					</b-input>
@@ -54,6 +57,8 @@
 						:options="roles"
 						v-model="selectedRole"
 						:state="roleIsSelected"
+						id="role"
+						name="role"
 					>
 					</b-form-select>
 					<b-form-invalid-feedback :state="roleIsSelected">
@@ -70,6 +75,7 @@
 						v-model="password"
 						:state="validPassword"
 						id="password"
+						name="password"
 						type="password"
 						>
 					</b-input>
