@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<b-form  @submit.stop.prevent>
+		<b-form  @submit="validateForm" method="post" :action="url">
 			<b-row cols="1" cols-sm="2" cols-lg="3">
 				<b-col class="mt-3">
 					<label for="name">Name</label>
@@ -104,11 +104,12 @@
 					<b-button variant="secondary" href="/user" size="big">
 						Cancel
 					</b-button>
-					<b-button variant="primary" size="big">
+					<b-button variant="primary" size="big" type="submit">
 						Confirm
 					</b-button>
 				</b-col>
 			</b-row>
+			<input type="hidden" name="_method" value="PUT" v-if="editing">
 			<input type="hidden" name="_token" :value="csrf">
 		</b-form>
 	</div>
@@ -119,6 +120,8 @@ export default {
     props: ['roles', 'user'],
 	data: () => {
 		return {
+			editing: false,
+			url: '../user/',
 			name: '',
 			surname: '',
 			email: '',
@@ -154,9 +157,26 @@ export default {
 	},
 	mounted () {
 		if(typeof this.user != 'undefined') {
+			this.editing = true;
+			this.url += this.user.id;
 			this.name = this.user.name;
 			this.surname = this.user.surname;
 			this.email = this.user.email;
+		}
+	},
+	methods: {
+		validateForm: function (e) {
+			if(
+				this.validName
+				&& this.validSurname
+				&& this.validEmail
+				&& this.validPassword
+				&& this.passwordsMatch
+				&& this.roleIsSelected
+			) {
+				return true;
+			}
+			e.preventDefault();
 		}
 	}
 };

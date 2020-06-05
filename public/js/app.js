@@ -2057,10 +2057,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['roles', 'user'],
   data: function data() {
     return {
+      editing: false,
+      url: '../user/',
       name: '',
       surname: '',
       email: '',
@@ -2099,9 +2102,20 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     if (typeof this.user != 'undefined') {
+      this.editing = true;
+      this.url += this.user.id;
       this.name = this.user.name;
       this.surname = this.user.surname;
       this.email = this.user.email;
+    }
+  },
+  methods: {
+    validateForm: function validateForm(e) {
+      if (this.validName && this.validSurname && this.validEmail && this.validPassword && this.passwordsMatch && this.roleIsSelected) {
+        return true;
+      }
+
+      e.preventDefault();
     }
   }
 });
@@ -81231,12 +81245,8 @@ var render = function() {
       _c(
         "b-form",
         {
-          on: {
-            submit: function($event) {
-              $event.stopPropagation()
-              $event.preventDefault()
-            }
-          }
+          attrs: { method: "post", action: _vm.url },
+          on: { submit: _vm.validateForm }
         },
         [
           _c(
@@ -81496,7 +81506,9 @@ var render = function() {
                   _vm._v(" "),
                   _c(
                     "b-button",
-                    { attrs: { variant: "primary", size: "big" } },
+                    {
+                      attrs: { variant: "primary", size: "big", type: "submit" }
+                    },
                     [_vm._v("\n\t\t\t\t\tConfirm\n\t\t\t\t")]
                   )
                 ],
@@ -81505,6 +81517,12 @@ var render = function() {
             ],
             1
           ),
+          _vm._v(" "),
+          _vm.editing
+            ? _c("input", {
+                attrs: { type: "hidden", name: "_method", value: "PUT" }
+              })
+            : _vm._e(),
           _vm._v(" "),
           _c("input", {
             attrs: { type: "hidden", name: "_token" },
