@@ -2243,6 +2243,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["users"],
   data: function data() {
@@ -81668,6 +81678,30 @@ var render = function() {
                 },
                 scopedSlots: _vm._u([
                   {
+                    key: "cell(created_at)",
+                    fn: function(row) {
+                      return [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t" +
+                            _vm._s(_vm._f("datetime")(row.item.created_at)) +
+                            "\n\t\t\t\t\t"
+                        )
+                      ]
+                    }
+                  },
+                  {
+                    key: "cell(updated_at)",
+                    fn: function(row) {
+                      return [
+                        _vm._v(
+                          "\n\t\t\t\t\t\t" +
+                            _vm._s(_vm._f("datetime")(row.item.updated_at)) +
+                            "\n\t\t\t\t\t"
+                        )
+                      ]
+                    }
+                  },
+                  {
                     key: "cell(actions)",
                     fn: function(row) {
                       return [
@@ -93996,7 +94030,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 
 Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__["BootstrapVue"]);
 Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__["BootstrapVueIcons"]);
+ // Load custom resources
 
+__webpack_require__(/*! ./custom-vue-filters.js */ "./resources/js/custom-vue-filters.js");
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -94006,6 +94042,7 @@ Vue.use(bootstrap_vue__WEBPACK_IMPORTED_MODULE_0__["BootstrapVueIcons"]);
  */
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
 Vue.component('user-grid', __webpack_require__(/*! ./components/UserGridComponent.vue */ "./resources/js/components/UserGridComponent.vue")["default"]);
@@ -94271,6 +94308,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_UserGridComponent_vue_vue_type_template_id_4550651e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
+
+/***/ }),
+
+/***/ "./resources/js/custom-vue-filters.js":
+/*!********************************************!*\
+  !*** ./resources/js/custom-vue-filters.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+Vue.filter('datetime', function (value) {
+  if (!value) return '';
+  return new Date(value).toLocaleString();
+});
 
 /***/ }),
 

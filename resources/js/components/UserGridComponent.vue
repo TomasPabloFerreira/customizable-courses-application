@@ -33,7 +33,17 @@
                     :perPage="perPage"
                     responsive
                 >
-                    <!-- actions -->
+					<!-- creation date -->
+					<template v-slot:cell(created_at)="row">
+						{{ row.item.created_at | datetime }}
+					</template>
+                 
+					<!-- last update date -->
+					<template v-slot:cell(updated_at)="row">
+						{{ row.item.updated_at | datetime }}
+					</template>
+                       
+					<!-- actions -->
                     <template v-slot:cell(actions)="row">
                         <b-button
                             size="sm"
@@ -149,13 +159,7 @@ export default {
 		let confirmation = confirm(
 			'Are you sure you want to delete this user?'
 		);
-		if(confirmation) {
-			return true
-		}
-		e.preventDefault();
-	}
-    },
-    computed: {
+		if(confirmation) { return true } e.preventDefault(); } }, computed: {
         rows() {
             return this.users.length;
         }

@@ -16,6 +16,10 @@ Vue.use(BootstrapVueIcons)
 
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 
+// Load custom resources
+
+require('./custom-vue-filters.js');
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -41,3 +45,4 @@ Vue.component('user-form', require('./components/UserFormComponent.vue').default
 const app = new Vue({
     el: '#app',
 });
+
