@@ -78,8 +78,34 @@ class UserController extends Controller
 		]);
 
 		$user->save();
-		$user->save();
 		return redirect('/user')->with('success', 'User has been created');
+	}
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+	public function update (Request $request, $id) {
+		$request->validate([
+			'name' => 'between:3,32',
+			'surname' => 'between:3,32',
+			'email' => 'email',
+			'role' => 'exists:App\Role,id',
+			'password' => 'between:8,64'
+		]);
+
+		$user = User::find($id);
+		$user->name = $request->input('name');
+		$user->surname = $request->input('surname');
+		$user->email = $request->input('email');
+		$user->role_id = $request->input('role');
+		$user->password = Hash::make($request->input('password'));
+
+		$user->save();
+		return redirect('/user')->with('success', 'User has been updated');
 	}
 	
 	/**
