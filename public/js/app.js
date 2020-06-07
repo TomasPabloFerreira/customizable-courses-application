@@ -2064,12 +2064,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['roles', 'user'],
   data: function data() {
     return {
       editing: false,
-      url: '../user/',
+      url: './',
       name: '',
       surname: '',
       email: '',
@@ -2109,10 +2115,10 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     if (typeof this.user != 'undefined') {
       this.editing = true;
-      this.url += this.user.id;
       this.name = this.user.name;
       this.surname = this.user.surname;
       this.email = this.user.email;
+      this.selectedRole = this.user.role_id;
     }
   },
   methods: {
@@ -81419,9 +81425,13 @@ var render = function() {
                 "b-col",
                 { staticClass: "mt-3" },
                 [
-                  _c("label", { attrs: { for: "password" } }, [
-                    _vm._v("Password")
-                  ]),
+                  _vm.editing
+                    ? _c("label", { attrs: { for: "password" } }, [
+                        _vm._v("New Password")
+                      ])
+                    : _c("label", { attrs: { for: "password" } }, [
+                        _vm._v("Password")
+                      ]),
                   _vm._v(" "),
                   _c("b-input", {
                     attrs: {
@@ -81462,9 +81472,13 @@ var render = function() {
                 "b-col",
                 { staticClass: "mt-3" },
                 [
-                  _c("label", { attrs: { for: "passwordConfirmation" } }, [
-                    _vm._v("\n\t\t\t\t\tConfirm Password\n\t\t\t\t")
-                  ]),
+                  _vm.editing
+                    ? _c("label", { attrs: { for: "passwordConfirmation" } }, [
+                        _vm._v("\n\t\t\t\t\tConfirm New Password\n\t\t\t\t")
+                      ])
+                    : _c("label", { attrs: { for: "passwordConfirmation" } }, [
+                        _vm._v("\n\t\t\t\t\tConfirm Password\n\t\t\t\t")
+                      ]),
                   _vm._v(" "),
                   _c("b-input", {
                     attrs: {

@@ -70,7 +70,9 @@
 
 				</b-col>
 				<b-col class="mt-3">
-					<label for="password">Password</label>
+					<label v-if="editing" for="password">New Password</label>
+					<label v-else for="password">Password</label>
+
 					<b-input
 						v-model="password"
 						:state="validPassword"
@@ -87,9 +89,13 @@
 					</b-form-valid-feedback>
 				</b-col>
 				<b-col class="mt-3">
-					<label for="passwordConfirmation">
+					<label v-if="editing" for="passwordConfirmation">
+						Confirm New Password
+					</label>
+					<label v-else for="passwordConfirmation">
 						Confirm Password
 					</label>
+
 					<b-input
 						v-model="passwordConfirmation"
 						:state="passwordsMatch"
@@ -127,7 +133,7 @@ export default {
 	data: () => {
 		return {
 			editing: false,
-			url: '../user/',
+			url: './',
 			name: '',
 			surname: '',
 			email: '',
@@ -164,10 +170,10 @@ export default {
 	mounted () {
 		if(typeof this.user != 'undefined') {
 			this.editing = true;
-			this.url += this.user.id;
 			this.name = this.user.name;
 			this.surname = this.user.surname;
 			this.email = this.user.email;
+			this.selectedRole = this.user.role_id;
 		}
 	},
 	methods: {
