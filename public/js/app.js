@@ -2075,7 +2075,6 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       editing: false,
-      url: './',
       name: '',
       surname: '',
       email: '',
@@ -2236,10 +2235,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["users"],
   data: function data() {
     return {
+      csrf: document.head.querySelector('meta[name="csrf-token"]').content,
       pageOptions: [5, 10, 25, 50, 100],
       currentPage: 1,
       perPage: 10,
@@ -2276,12 +2284,14 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    deleteUser: function deleteUser(userId) {
-      var confirmation = confirm('are you sure you want to delete this user?');
+    confirmDelete: function confirmDelete(e) {
+      var confirmation = confirm('Are you sure you want to delete this user?');
 
       if (confirmation) {
-        window.location.replace('user/' + userId + '/delete');
+        return true;
       }
+
+      e.preventDefault();
     }
   },
   computed: {
@@ -81255,7 +81265,7 @@ var render = function() {
       _c(
         "b-form",
         {
-          attrs: { method: "post", action: _vm.url },
+          attrs: { method: "post", action: "./" },
           on: { submit: _vm.validateForm }
         },
         [
@@ -81679,19 +81689,44 @@ var render = function() {
                         ),
                         _vm._v(" "),
                         _c(
-                          "b-button",
+                          "form",
                           {
-                            attrs: { size: "sm", variant: "danger" },
-                            on: {
-                              click: function($event) {
-                                return _vm.deleteUser(row.item.id)
-                              }
-                            }
+                            attrs: {
+                              action: "user/" + row.item.id,
+                              method: "post"
+                            },
+                            on: { submit: _vm.confirmDelete }
                           },
                           [
-                            _c("b-icon-person-dash-fill", {
-                              attrs: { width: "1em", height: "1.4em" }
-                            })
+                            _c("input", {
+                              attrs: {
+                                type: "hidden",
+                                name: "_method",
+                                value: "DELETE"
+                              }
+                            }),
+                            _vm._v(" "),
+                            _c("input", {
+                              attrs: { type: "hidden", name: "_token" },
+                              domProps: { value: _vm.csrf }
+                            }),
+                            _vm._v(" "),
+                            _c(
+                              "b-button",
+                              {
+                                attrs: {
+                                  size: "sm",
+                                  variant: "danger",
+                                  type: "submit"
+                                }
+                              },
+                              [
+                                _c("b-icon-person-dash-fill", {
+                                  attrs: { width: "1em", height: "1.4em" }
+                                })
+                              ],
+                              1
+                            )
                           ],
                           1
                         )

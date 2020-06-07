@@ -29,7 +29,7 @@ Route::get('/user/create', 'UserController@create')->name('user.create');
 
 Route::post('/user', 'UserController@store')->name('user.store');
 
-Route::put('user/{id}', 'UserController@update')->name('user.update');
+Route::put('/user/{id}', 'UserController@update')->name('user.update');
 
-Route::put('user/{id}', 'UserController@delete')->name('user.delete');
+Route::delete('/user/{id}', 'UserController@destroy')->name('user.destroy');
 

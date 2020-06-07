@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<b-form  @submit="validateForm" method="post" :action="url">
+		<b-form  @submit="validateForm" method="post" action="./">
 			<b-row cols="1" cols-sm="2" cols-lg="3">
 				<b-col class="mt-3">
 					<label for="name">Name</label>
@@ -133,7 +133,6 @@ export default {
 	data: () => {
 		return {
 			editing: false,
-			url: './',
 			name: '',
 			surname: '',
 			email: '',

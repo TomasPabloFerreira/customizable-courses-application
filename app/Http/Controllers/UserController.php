@@ -81,6 +81,20 @@ class UserController extends Controller
 		$user->save();
 		return redirect('/user')->with('success', 'User has been created');
 	}
+	
+	/**
+	 * Remove the specified resource from storage.
+	 *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+	public function destroy ($id)
+	{
+		$user = User::find($id);
+		$user->delete();
+
+		return redirect('/user')->with('success', 'User has been deleted');	
+	}
 }
 
 

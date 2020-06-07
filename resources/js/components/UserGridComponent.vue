@@ -45,16 +45,24 @@
                                 height="1.4em"
                             ></b-icon-pencil-square>
                         </b-button>
-                        <b-button
-                            size="sm"
-                            variant="danger"
-							@click="deleteUser(row.item.id)"
-                        >
-                            <b-icon-person-dash-fill
-                                width="1em"
-                                height="1.4em"
-                            ></b-icon-person-dash-fill>
-                        </b-button>
+						<form
+							:action="'user/' + row.item.id"
+							method="post"
+							@submit="confirmDelete"
+						>
+							<input type="hidden" name="_method" value="DELETE">
+							<input type="hidden" name="_token" :value="csrf">
+							<b-button
+							    size="sm"
+								variant="danger"
+								type="submit"
+							>
+								<b-icon-person-dash-fill
+									width="1em"
+									height="1.4em"
+								></b-icon-person-dash-fill>
+							</b-button>
+						</form>
                     </template>
                 </b-table>
 
@@ -96,6 +104,7 @@ export default {
     props: ["users"],
     data() {
         return {
+			csrf: document.head.querySelector('meta[name="csrf-token"]').content,
             pageOptions: [5, 10, 25, 50, 100],
             currentPage: 1,
             perPage: 10,
@@ -136,11 +145,14 @@ export default {
         };
     },
     methods: {
-	deleteUser: (userId) => {
-		let confirmation = confirm('are you sure you want to delete this user?');
+	confirmDelete: (e) => {
+		let confirmation = confirm(
+			'Are you sure you want to delete this user?'
+		);
 		if(confirmation) {
-			window.location.replace('user/' + userId + '/delete');
+			return true
 		}
+		e.preventDefault();
 	}
     },
     computed: {
