@@ -36,6 +36,9 @@ class CourseController extends Controller
 
 	public function edit($id)
 	{
+		$course = Course::findOrFail($id);
+		
+		return view('course.form', ['course' => $course]);
 	}
 
 	public function create()
@@ -65,6 +68,24 @@ class CourseController extends Controller
 
 		$course->save();
 		return redirect('/course')->with('success', 'Course has been created');
+	}
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+	public function update (Request $request, $id)
+	{
+		$course = Course::find($id);
+		$course->title = $request->input('title');
+		$course->description = $request->input('description');
+		$course->image_source = $request->input('imageSource');
+
+		$course->save();
+		return redirect('/course')->with('success', 'Course has been updated');
 	}
 }
 

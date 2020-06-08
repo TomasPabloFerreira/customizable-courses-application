@@ -100,14 +100,12 @@ export default {
 			);
 		}
 	},
-	beforeMount() {
-	
-	},
 	mounted() {
 		if(typeof this.course != 'undefined') {
+			this.editing = true;
 			this.title = this.course.title;
 			this.description = this.course.description;
-			this.image_source = this.course.image_source;
+			this.imageSource = this.course.image_source;
 		}
 	},
 	methods: {

@@ -2005,12 +2005,12 @@ var _this = undefined;
       return this.imageSource.length >= 0 && this.imageSource.length <= 256;
     }
   },
-  beforeMount: function beforeMount() {},
   mounted: function mounted() {
     if (typeof this.course != 'undefined') {
+      this.editing = true;
       this.title = this.course.title;
       this.description = this.course.description;
-      this.image_source = this.course.image_source;
+      this.imageSource = this.course.image_source;
     }
   },
   methods: {

@@ -20,7 +20,7 @@
 	<b-row class="justify-content-md-center mt-4">
 		<b-col cols="12">
 			@isset($course)
-				<course-form :user='@json($course)'></course-form>
+				<course-form :course='@json($course)'></course-form>
 			@endisset
 
 			@empty($course)
