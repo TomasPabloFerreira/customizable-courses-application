@@ -35,6 +35,8 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('user-grid', require('./components/UserGridComponent.vue').default);
 Vue.component('user-form', require('./components/UserFormComponent.vue').default);
 Vue.component('course-grid', require('./components/CourseGridComponent.vue').default);
+Vue.component('course-form', require('./components/CourseFormComponent.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

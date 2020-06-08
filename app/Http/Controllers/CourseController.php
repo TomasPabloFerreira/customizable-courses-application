@@ -33,7 +33,16 @@ class CourseController extends Controller
 					]);
 
 		return view('course.grid', ['courses' => $courses]);
-    }
+	}
+
+	public function edit($id)
+	{
+	}
+
+	public function create()
+	{
+		return view('course.form');
+	}
 }
 
 
