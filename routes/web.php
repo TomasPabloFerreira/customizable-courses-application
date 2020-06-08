@@ -39,3 +39,5 @@ Route::get('/course/{id}/edit', 'CourseController@edit')->name('course.edit');
 
 Route::get('/course/create', 'CourseController@create')->name('course.create');
 
+Route::post('/course', 'CourseController@store')->name('course.store');
+
