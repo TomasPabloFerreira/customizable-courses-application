@@ -1,4 +1,5 @@
 <template>
+
     <b-container fluid>
         <b-row>
             <b-col>
@@ -23,40 +24,30 @@
             <b-col overflow-auto>
                 <!-- Table -->
                 <b-table
-                    id="users-table"
+                    id="courses-table"
                     :current-page="currentPage"
                     striped
                     hover
-                    :items="users"
+                    :items="courses"
                     :fields="fields"
                     :filter="criteria"
                     :perPage="perPage"
                     responsive
                 >
-					<!-- creation date -->
-					<template v-slot:cell(created_at)="row">
-						{{ row.item.created_at | datetime }}
-					</template>
-                 
-					<!-- last update date -->
-					<template v-slot:cell(updated_at)="row">
-						{{ row.item.updated_at | datetime }}
-					</template>
-                       
-					<!-- actions -->
-                    <template v-slot:cell(actions)="row">
-                        <b-button
-                            size="sm"
-                            variant="success"
-                            :href="'user/' + row.item.id + '/edit'"
-                        >
-                            <b-icon-pencil-square
-                                width="1em"
-                                height="1.4em"
-                            ></b-icon-pencil-square>
-                        </b-button>
+					<template v-slot:cell(actions)="row">
+						<b-button
+							size="sm"
+							variant="success"
+							:href="'course/' + row.item.id + '/edit'"
+						>
+							<b-icon-pencil-square
+								width="1em"
+								height="1.4em"
+							></b-icon-pencil-square>
+						</b-button>
+
 						<form
-							:action="'user/' + row.item.id"
+							:action="'course/' + row.item.id"
 							method="post"
 							@submit="confirmDelete"
 						>
@@ -73,7 +64,7 @@
 								></b-icon-person-dash-fill>
 							</b-button>
 						</form>
-                    </template>
+					</template>
                 </b-table>
 
                 <b-row>
@@ -83,7 +74,7 @@
 							v-model="currentPage"
                            	:total-rows="rows"
                             :per-page="perPage"
-                            aria-controls="users-table"
+                            aria-controls="courses-table"
                         ></b-pagination>
                     </b-col>
 		    
@@ -92,9 +83,9 @@
 							size="lg"
 							variant="primary"
 							class="mt-1"
-							href="user/create"		
+							href="course/create"	
 						>
-							Create User
+							Create Course
 						</b-button>
 					</b-col>
 
@@ -107,11 +98,12 @@
             </b-col>
         </b-row>
     </b-container>
+
 </template>
 
 <script>
 export default {
-    props: ["users"],
+    props: ["courses"],
     data() {
         return {
 			csrf: document.head.querySelector('meta[name="csrf-token"]').content,
@@ -121,54 +113,37 @@ export default {
             criteria: "",
             fields: [
                 {
-                    key: "name",
-                    label: "Name",
+                    key: "title",
+                    label: "Title",
                     sortable: true,
                 },
                 {
-                    key: "surname",
-                    label: "Surname",
+                    key: "description",
+                    label: "Description",
                     sortable: true,
                 },
                 {
-                    key: "role.name",
-                    label: "Role",
-                    sortable: true,
-                },
-                {
-                    key: "email",
-                    label: "Email",
-                    sortable: true,
-                },
-                {
-                    key: "created_at",
-                    label: "Creation Date",
-                    sortable: true,
-                },
-                {
-                    key: "updated_at",
-                    label: "Last Update Date",
+                    key: "image_source",
+                    label: "Image Source",
                     sortable: true,
                 },
                 { key: "actions", label: "Actions", sortable: false }
             ]
         };
     },
-    methods: {
+	methods: {
 		confirmDelete: (e) => {
 			let confirmation = confirm(
-				'Are you sure you want to delete this user?'
+				'Are you sure you want to delete this course?'
 			);
-			if(confirmation) {
-				return true
-			}
+			if(confirmation) return true;
 			e.preventDefault();
 		}
-	}, 
+	},
 	computed: {
-        rows() {
-            return this.users.length;
-        }
-    }
-};
+		rows() {
+			return this.courses.length;
+		}
+	}
+}
 </script>

@@ -33,3 +33,4 @@ Route::put('/user/{id}', 'UserController@update')->name('user.update');
 
 Route::delete('/user/{id}', 'UserController@destroy')->name('user.destroy');
 
+Route::get('/course', 'CourseController@index')->name('course.index');

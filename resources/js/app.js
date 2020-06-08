@@ -34,7 +34,7 @@ require('./custom-vue-filters.js');
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('user-grid', require('./components/UserGridComponent.vue').default);
 Vue.component('user-form', require('./components/UserFormComponent.vue').default);
-
+Vue.component('course-grid', require('./components/CourseGridComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
