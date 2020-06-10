@@ -87,5 +87,20 @@ class CourseController extends Controller
 		$course->save();
 		return redirect('/course')->with('success', 'Course has been updated');
 	}
+	
+	/**
+	 * Remove the specified resource from storage.
+	 *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+	public function destroy ($id)
+	{
+		$course = Course::find($id);
+		$course->delete();
+
+		return redirect('/course')->with('success', 'Course has been deleted');	
+	}
+
 }
 
