@@ -34,36 +34,51 @@
                     :perPage="perPage"
                     responsive
                 >
-					<template v-slot:cell(actions)="row">
-						<b-button
-							size="sm"
-							variant="success"
-							:href="'course/' + row.item.id + '/edit'"
-						>
-							<b-icon-pencil-square
-								width="1em"
-								height="1.4em"
-							></b-icon-pencil-square>
-						</b-button>
-
-						<form
-							:action="'course/' + row.item.id"
-							method="post"
-							@submit="confirmDelete"
-						>
-							<input type="hidden" name="_method" value="DELETE">
-							<input type="hidden" name="_token" :value="csrf">
+					<template v-slot:cell(actions)="row" >
+						<div style="display: inline-flex;">
 							<b-button
-							    size="sm"
-								variant="danger"
-								type="submit"
+								size="sm"
+								class="mr-1"
+								variant="primary"
+								:href="'course/' + row.item.id + '/section'"
 							>
-								<b-icon-person-dash-fill
+								<b-icon-view-list
 									width="1em"
 									height="1.4em"
-								></b-icon-person-dash-fill>
+								></b-icon-view-list>
+								<span>View sections</span>
 							</b-button>
-						</form>
+							<b-button
+								size="sm"
+								class="mr-1"
+								variant="success"
+								:href="'course/' + row.item.id + '/edit'"
+							>
+								<b-icon-pencil-square
+									width="1em"
+									height="1.4em"
+								></b-icon-pencil-square>
+							</b-button>
+
+							<form
+								:action="'course/' + row.item.id"
+								method="post"
+								@submit="confirmDelete"
+							>
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="hidden" name="_token" :value="csrf">
+								<b-button
+									size="sm"
+									variant="danger"
+									type="submit"
+								>
+									<b-icon-person-dash-fill
+										width="1em"
+										height="1.4em"
+									></b-icon-person-dash-fill>
+								</b-button>
+							</form>
+						</div>
 					</template>
                 </b-table>
 

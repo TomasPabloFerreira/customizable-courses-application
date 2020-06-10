@@ -2138,6 +2138,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["courses"],
   data: function data() {
@@ -81777,58 +81792,86 @@ var render = function() {
                     fn: function(row) {
                       return [
                         _c(
-                          "b-button",
-                          {
-                            attrs: {
-                              size: "sm",
-                              variant: "success",
-                              href: "course/" + row.item.id + "/edit"
-                            }
-                          },
+                          "div",
+                          { staticStyle: { display: "inline-flex" } },
                           [
-                            _c("b-icon-pencil-square", {
-                              attrs: { width: "1em", height: "1.4em" }
-                            })
-                          ],
-                          1
-                        ),
-                        _vm._v(" "),
-                        _c(
-                          "form",
-                          {
-                            attrs: {
-                              action: "course/" + row.item.id,
-                              method: "post"
-                            },
-                            on: { submit: _vm.confirmDelete }
-                          },
-                          [
-                            _c("input", {
-                              attrs: {
-                                type: "hidden",
-                                name: "_method",
-                                value: "DELETE"
-                              }
-                            }),
-                            _vm._v(" "),
-                            _c("input", {
-                              attrs: { type: "hidden", name: "_token" },
-                              domProps: { value: _vm.csrf }
-                            }),
+                            _c(
+                              "b-button",
+                              {
+                                staticClass: "mr-1",
+                                attrs: {
+                                  size: "sm",
+                                  variant: "primary",
+                                  href: "course/" + row.item.id + "/section"
+                                }
+                              },
+                              [
+                                _c("b-icon-view-list", {
+                                  attrs: { width: "1em", height: "1.4em" }
+                                }),
+                                _vm._v(" "),
+                                _c("span", [_vm._v("View sections")])
+                              ],
+                              1
+                            ),
                             _vm._v(" "),
                             _c(
                               "b-button",
                               {
+                                staticClass: "mr-1",
                                 attrs: {
                                   size: "sm",
-                                  variant: "danger",
-                                  type: "submit"
+                                  variant: "success",
+                                  href: "course/" + row.item.id + "/edit"
                                 }
                               },
                               [
-                                _c("b-icon-person-dash-fill", {
+                                _c("b-icon-pencil-square", {
                                   attrs: { width: "1em", height: "1.4em" }
                                 })
+                              ],
+                              1
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "form",
+                              {
+                                attrs: {
+                                  action: "course/" + row.item.id,
+                                  method: "post"
+                                },
+                                on: { submit: _vm.confirmDelete }
+                              },
+                              [
+                                _c("input", {
+                                  attrs: {
+                                    type: "hidden",
+                                    name: "_method",
+                                    value: "DELETE"
+                                  }
+                                }),
+                                _vm._v(" "),
+                                _c("input", {
+                                  attrs: { type: "hidden", name: "_token" },
+                                  domProps: { value: _vm.csrf }
+                                }),
+                                _vm._v(" "),
+                                _c(
+                                  "b-button",
+                                  {
+                                    attrs: {
+                                      size: "sm",
+                                      variant: "danger",
+                                      type: "submit"
+                                    }
+                                  },
+                                  [
+                                    _c("b-icon-person-dash-fill", {
+                                      attrs: { width: "1em", height: "1.4em" }
+                                    })
+                                  ],
+                                  1
+                                )
                               ],
                               1
                             )
