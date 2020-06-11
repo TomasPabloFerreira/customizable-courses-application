@@ -45,3 +45,5 @@ Route::put('/course/{id}', 'CourseController@update')->name('course.update');
 
 Route::delete('/course/{id}', 'CourseController@destroy')->name('course.destroy');
 
+Route::get('/course/{courseId}/section', 'CourseSectionController@index')->name('course.section.index');
+
