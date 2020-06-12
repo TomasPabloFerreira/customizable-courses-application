@@ -82,4 +82,18 @@ class CourseSectionController extends Controller
 			->with('success', 'Course section has been updated');
 	}
 
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  int  $courseId
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+	public function destroy ($courseId, $id)
+	{
+		$course = CourseSection::find($id);
+		$course->delete();
+		return redirect("/course/$courseId/section")
+			->with('success', 'Course section has been deleted');
+	}
 }
