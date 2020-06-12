@@ -20,11 +20,13 @@ class CourseSectionController extends Controller
 	/**
 	 * Show the users table.
 	 *
+	 * @param  int  $courseId
 	 * @return \Illuminate\Contracts\Support\Renderable
 	 */
-	public function index()
+	public function index($courseId)
 	{
-		$sections = CourseSection::get(['id', 'title']);
+		$sections = CourseSection::where('course_id', $courseId)
+			->get(['id', 'title']);
 
 		return view('course.section.grid', ['sections' => $sections]);
 	}
