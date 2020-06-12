@@ -39,13 +39,13 @@
 								size="sm"
 								class="mr-1"
 								variant="primary"
-								:href="'section/' + row.item.id + '/section'"
+								:href="'section/' + row.item.id + '/lesson'"
 							>
-								<b-icon-view-list
+								<b-icon-collection-play
 									width="1em"
 									height="1.4em"
-								></b-icon-view-list>
-								<span>View sections</span>
+								></b-icon-collection-play>
+								<span>View lessons</span>
 							</b-button>
 							<b-button
 								size="sm"
@@ -93,6 +93,16 @@
                     </b-col>
 		    
 					<b-col class="text-center">
+						<b-button 
+							size="lg"
+							variant="secondary"
+							class="mt-1"
+							href="/course"	
+						>
+							<b-icon-arrow-return-left
+							></b-icon-arrow-return-left>
+							Courses
+						</b-button>
 						<b-button 
 							size="lg"
 							variant="primary"
