@@ -99,7 +99,7 @@
 							class="mt-1"
 							href="section/create"	
 						>
-							Create Course
+							Create Section
 						</b-button>
 					</b-col>
 

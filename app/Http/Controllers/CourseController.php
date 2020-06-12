@@ -34,16 +34,21 @@ class CourseController extends Controller
 		return view('course.grid', ['courses' => $courses]);
 	}
 
-	public function edit($id)
+	public function edit($courseId, $id)
 	{
 		$course = Course::findOrFail($id);
 		
-		return view('course.form', ['course' => $course]);
+		return view('course.form', [
+			'course_id' => $courseId
+			'course' => $course,
+		]);
 	}
 
-	public function create()
+	public function create($courseId)
 	{
-		return view('course.form');
+		var_dump($courseId);
+		die();
+		// return view('course.form', ['courseId' => $courseId]);
 	}
 
 	

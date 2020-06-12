@@ -47,3 +47,13 @@ Route::delete('/course/{id}', 'CourseController@destroy')->name('course.destroy'
 
 Route::get('/course/{courseId}/section', 'CourseSectionController@index')->name('course.section.index');
 
+Route::get('/course/{courseId}/section/{id}/edit', 'CourseSectionController@edit')->name('course.section.edit');
+
+Route::get('/course/{courseId}/section/create', 'CourseSectionController@create')->name('course.section.create');
+
+Route::post('/course/{courseId}/section', 'CourseSectionController@store')->name('course.section.store');
+
+Route::put('/course/{courseId}/section/{id}', 'CourseSectionController@update')->name('course.section.update');
+
+Route::delete('/course/{courseId}/section/{id}', 'CourseSectionController@destroy')->name('course.section.destroy');
+

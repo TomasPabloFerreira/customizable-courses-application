@@ -2197,6 +2197,92 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CourseSectionFormComponent.vue?vue&type=script&lang=js&":
+/*!*************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CourseSectionFormComponent.vue?vue&type=script&lang=js& ***!
+  \*************************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var _this = undefined;
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['course_id', 'section'],
+  data: function data() {
+    return {
+      editing: false,
+      title: '',
+      description: '',
+      imageSource: '',
+      csrf: document.head.querySelector('meta[name="csrf-token"]').content
+    };
+  },
+  computed: {
+    validTitle: function validTitle() {
+      return this.title.length >= 6 && this.title.length <= 64;
+    }
+  },
+  mounted: function mounted() {
+    if (typeof this.section != 'undefined') {
+      this.editing = true;
+      this.title = this.section.title;
+    }
+  },
+  methods: {
+    validateForm: function validateForm(e) {
+      if (_this.validTitle) {
+        return true;
+      }
+
+      e.preventDefault();
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CourseSectionGridComponent.vue?vue&type=script&lang=js&":
 /*!*************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CourseSectionGridComponent.vue?vue&type=script&lang=js& ***!
@@ -82121,6 +82207,123 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CourseSectionFormComponent.vue?vue&type=template&id=7ff9699a&":
+/*!*****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CourseSectionFormComponent.vue?vue&type=template&id=7ff9699a& ***!
+  \*****************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "b-form",
+    {
+      attrs: { method: "post", action: "./" },
+      on: { submit: _vm.validateForm }
+    },
+    [
+      _c(
+        "b-row",
+        { attrs: { cols: "12", "col-md": "6" } },
+        [
+          _c(
+            "b-col",
+            [
+              _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+              _vm._v(" "),
+              _c("b-input", {
+                attrs: { state: _vm.validTitle, id: "title", name: "title" },
+                model: {
+                  value: _vm.title,
+                  callback: function($$v) {
+                    _vm.title = $$v
+                  },
+                  expression: "title"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "b-form-invalid-feedback",
+                { attrs: { state: _vm.validTitle } },
+                [
+                  _vm._v(
+                    "\n\t\t\t\tCourse title must be 6-64 characters long.\n\t\t\t"
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-form-valid-feedback",
+                { attrs: { state: _vm.validTitle } },
+                [_vm._v("\n\t\t\t\tLooks Good.\n\t\t\t")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        { staticClass: "mt-4" },
+        [
+          _c(
+            "b-col",
+            { staticClass: "text-right" },
+            [
+              _c(
+                "b-button",
+                {
+                  attrs: {
+                    variant: "secondary",
+                    href: "/course/" + _vm.course_id + "/section",
+                    size: "big"
+                  }
+                },
+                [_vm._v("\n\t\t\t\tCancel\n\t\t\t")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-button",
+                { attrs: { variant: "primary", size: "big", type: "submit" } },
+                [_vm._v("\n\t\t\t\tConfirm\n\t\t\t")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.editing
+        ? _c("input", {
+            attrs: { type: "hidden", name: "_method", value: "PUT" }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "hidden", name: "_token" },
+        domProps: { value: _vm.csrf }
+      })
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CourseSectionGridComponent.vue?vue&type=template&id=5bd60e58&":
 /*!*****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/CourseSectionGridComponent.vue?vue&type=template&id=5bd60e58& ***!
@@ -82342,7 +82545,7 @@ var render = function() {
                             href: "section/create"
                           }
                         },
-                        [_vm._v("\n\t\t\t\t\t\t\tCreate Course\n\t\t\t\t\t\t")]
+                        [_vm._v("\n\t\t\t\t\t\t\tCreate Section\n\t\t\t\t\t\t")]
                       )
                     ],
                     1
@@ -95222,6 +95425,7 @@ Vue.component('user-form', __webpack_require__(/*! ./components/UserFormComponen
 Vue.component('course-grid', __webpack_require__(/*! ./components/CourseGridComponent.vue */ "./resources/js/components/CourseGridComponent.vue")["default"]);
 Vue.component('course-form', __webpack_require__(/*! ./components/CourseFormComponent.vue */ "./resources/js/components/CourseFormComponent.vue")["default"]);
 Vue.component('course-section-grid', __webpack_require__(/*! ./components/CourseSectionGridComponent.vue */ "./resources/js/components/CourseSectionGridComponent.vue")["default"]);
+Vue.component('course-section-form', __webpack_require__(/*! ./components/CourseSectionFormComponent.vue */ "./resources/js/components/CourseSectionFormComponent.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -95412,6 +95616,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CourseGridComponent_vue_vue_type_template_id_9ca6d83e___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CourseGridComponent_vue_vue_type_template_id_9ca6d83e___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/CourseSectionFormComponent.vue":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/CourseSectionFormComponent.vue ***!
+  \****************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _CourseSectionFormComponent_vue_vue_type_template_id_7ff9699a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./CourseSectionFormComponent.vue?vue&type=template&id=7ff9699a& */ "./resources/js/components/CourseSectionFormComponent.vue?vue&type=template&id=7ff9699a&");
+/* harmony import */ var _CourseSectionFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CourseSectionFormComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/CourseSectionFormComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _CourseSectionFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _CourseSectionFormComponent_vue_vue_type_template_id_7ff9699a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _CourseSectionFormComponent_vue_vue_type_template_id_7ff9699a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/CourseSectionFormComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/CourseSectionFormComponent.vue?vue&type=script&lang=js&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/CourseSectionFormComponent.vue?vue&type=script&lang=js& ***!
+  \*****************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CourseSectionFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./CourseSectionFormComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CourseSectionFormComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_CourseSectionFormComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/CourseSectionFormComponent.vue?vue&type=template&id=7ff9699a&":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/components/CourseSectionFormComponent.vue?vue&type=template&id=7ff9699a& ***!
+  \***********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CourseSectionFormComponent_vue_vue_type_template_id_7ff9699a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./CourseSectionFormComponent.vue?vue&type=template&id=7ff9699a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/CourseSectionFormComponent.vue?vue&type=template&id=7ff9699a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CourseSectionFormComponent_vue_vue_type_template_id_7ff9699a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_CourseSectionFormComponent_vue_vue_type_template_id_7ff9699a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

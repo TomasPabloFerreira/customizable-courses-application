@@ -29,4 +29,17 @@ class CourseSectionController extends Controller
 		return view('course.section.grid', ['sections' => $sections]);
 	}
 
+	public function edit($courseId, $id)
+	{
+		$section = Section::findOrFail($id);
+
+		return view('course.section.form', [
+			'courseId' => $courseId,
+			'section' => $section
+		]);
+	}
+
+	public function create($courseId) {
+		return view('course.section.form', ['courseId' => $courseId]);
+	}
 }
