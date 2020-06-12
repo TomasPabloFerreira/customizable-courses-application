@@ -82425,7 +82425,7 @@ var render = function() {
                                 attrs: {
                                   size: "sm",
                                   variant: "primary",
-                                  href: "sections/" + row.item.id + "/section"
+                                  href: "section/" + row.item.id + "/section"
                                 }
                               },
                               [
@@ -82445,7 +82445,7 @@ var render = function() {
                                 attrs: {
                                   size: "sm",
                                   variant: "success",
-                                  href: "sections/" + row.item.id + "/edit"
+                                  href: "section/" + row.item.id + "/edit"
                                 }
                               },
                               [
@@ -82460,7 +82460,7 @@ var render = function() {
                               "form",
                               {
                                 attrs: {
-                                  action: "sections/" + row.item.id,
+                                  action: "section/" + row.item.id,
                                   method: "post"
                                 },
                                 on: { submit: _vm.confirmDelete }

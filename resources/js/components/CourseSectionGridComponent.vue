@@ -39,7 +39,7 @@
 								size="sm"
 								class="mr-1"
 								variant="primary"
-								:href="'sections/' + row.item.id + '/section'"
+								:href="'section/' + row.item.id + '/section'"
 							>
 								<b-icon-view-list
 									width="1em"
@@ -51,7 +51,7 @@
 								size="sm"
 								class="mr-1"
 								variant="success"
-								:href="'sections/' + row.item.id + '/edit'"
+								:href="'section/' + row.item.id + '/edit'"
 							>
 								<b-icon-pencil-square
 									width="1em"
@@ -60,7 +60,7 @@
 							</b-button>
 
 							<form
-								:action="'sections/' + row.item.id"
+								:action="'section/' + row.item.id"
 								method="post"
 								@submit="confirmDelete"
 							>

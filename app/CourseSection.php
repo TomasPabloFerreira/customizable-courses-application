@@ -14,7 +14,7 @@ class CourseSection extends Model
      * @var array
      */
     protected $fillable = [
-		'title',
+		'title', 'course_id'
     ];
 	
 	public $timestamps = false;

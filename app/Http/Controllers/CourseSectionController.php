@@ -31,7 +31,7 @@ class CourseSectionController extends Controller
 
 	public function edit($courseId, $id)
 	{
-		$section = Section::findOrFail($id);
+		$section = CourseSection::findOrFail($id);
 
 		return view('course.section.form', [
 			'courseId' => $courseId,
@@ -42,4 +42,25 @@ class CourseSectionController extends Controller
 	public function create($courseId) {
 		return view('course.section.form', ['courseId' => $courseId]);
 	}
+
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function store($courseId, Request $request)
+	{
+		$request->validate(['title' => 'between:6,64']);
+		$section = new CourseSection([
+			'title' => $request->input('title'),
+			'course_id' => $courseId
+		]);
+
+		$section->save();
+		return redirect("/course/$courseId/section")
+			->with('success', 'Course section has been created');
+	}
+
+
 }
