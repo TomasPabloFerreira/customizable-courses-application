@@ -20,10 +20,23 @@ class LessonController extends Controller
 	/**
 	 * Show the users table.
 	 *
+	 * @param  int  $courseId
+	 * @param  int  $sectionId
 	 * @return \Illuminate\Contracts\Support\Renderable
 	 */
-	public function index()
+	public function index($courseId, $sectionId)
 	{
+		$lessons = Lesson::where('course_section_id', $sectionId)->get([
+			'id',
+			'title',
+			'video_source',
+			'duration'
+		]);
+
+		return view('course.section.lesson.grid', [
+			'lessons' => $lessons,
+			'courseId' => $courseId
+		]);
 	}
 
 	public function edit()
