@@ -43,7 +43,11 @@ class LessonController extends Controller
 	{
 	}
 
-	public function create() {
+	public function create($courseId, $sectionId) {
+		return view('course.section.lesson.form', [
+			'courseId' => $courseId,
+			'sectionId' => $sectionId
+		]);
 	}
 
 	/**

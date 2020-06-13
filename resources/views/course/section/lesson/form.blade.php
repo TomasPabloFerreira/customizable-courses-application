@@ -7,29 +7,33 @@
 	<b-row class="text-center mt-1 mb-1">
 		<b-col>
 			<h1>
-				@isset($section) 
-					Edit Course Section {{ $section['title'] }}	
+				@isset($lesson) 
+					Edit Lesson {{ $lesson['title'] }}	
 				@endisset
 
-				@empty($section)
-					Create Course Section
+				@empty($lesson)
+					Create Lesson
 				@endempty
 			</h1>
 		</b-col>
 	</b-row>
 	<b-row class="justify-content-md-center mt-4">
 		<b-col cols="12">
-			@isset($section)
-				<course-section-form
+			@isset($lesson)
+				<lesson-form
 					:course_id="{{ $courseId }}"
-					:section='@json($section)'
+					:section_id="{{ $sectionId }}"
+					:section='@json($lesson)'
 				>
-				</course-section-form>
+				</lesson-form>
 			@endisset
 
-			@empty($section)
-				<course-section-form :course_id="{{ $courseId }}">
-				</course-section-form>
+			@empty($lesson)
+				<lesson-form
+					:course_id="{{ $courseId }}"
+					:section_id="{{ $sectionId }}"
+				>
+				</lesson-form>
 			@endempty
 		</b-col>
 	</b-row>

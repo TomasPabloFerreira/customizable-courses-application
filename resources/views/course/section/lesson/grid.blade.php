@@ -14,7 +14,7 @@
 	<b-row>
 		<b-col cols="12">
 		<lesson-grid :lessons='@json($lessons)' :courseid="{{ $courseId }}">
-			</lesson-grid>
+		</lesson-grid>
 		</b-col>
 	</b-row>
 </b-container>

@@ -2497,10 +2497,114 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+var _this = undefined;
+
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['course_id', 'section_id', 'lesson'],
+  data: function data() {
+    return {
+      editing: false,
+      title: '',
+      videoSource: '',
+      duration: null,
+      csrf: document.head.querySelector('meta[name="csrf-token"]').content
+    };
+  },
+  computed: {
+    validTitle: function validTitle() {
+      return this.title.length >= 6 && this.title.length <= 64;
+    },
+    validVideoSource: function validVideoSource() {
+      return this.videoSource.length >= 16 && this.videoSource.length <= 128;
+    },
+    validVideoDuration: function validVideoDuration() {
+      return this.duration !== null;
+    }
+  },
+  mounted: function mounted() {
+    if (typeof this.lesson != 'undefined') {
+      this.editing = true;
+      this.title = this.lesson.title;
+      this.videoSource = this.lesson.video_source;
+    }
+  },
+  methods: {
+    validateForm: function validateForm(e) {
+      if (_this.validTitle) {
+        return true;
+      }
+
+      e.preventDefault();
+    }
+  }
+});
 
 /***/ }),
 
@@ -82846,7 +82950,172 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div")
+  return _c(
+    "b-form",
+    {
+      attrs: { method: "post", action: "./" },
+      on: { submit: _vm.validateForm }
+    },
+    [
+      _c(
+        "b-row",
+        { attrs: { cols: "1", "cols-md": "2" } },
+        [
+          _c(
+            "b-col",
+            { staticClass: "mt-4" },
+            [
+              _c("label", { attrs: { for: "title" } }, [_vm._v("Title")]),
+              _vm._v(" "),
+              _c("b-input", {
+                attrs: { state: _vm.validTitle, id: "title", name: "title" },
+                model: {
+                  value: _vm.title,
+                  callback: function($$v) {
+                    _vm.title = $$v
+                  },
+                  expression: "title"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "b-form-invalid-feedback",
+                { attrs: { state: _vm.validTitle } },
+                [
+                  _vm._v(
+                    "\n\t\t\t\tLesson title must be 6-64 characters long.\n\t\t\t"
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-form-valid-feedback",
+                { attrs: { state: _vm.validTitle } },
+                [_vm._v("\n\t\t\t\tLooks Good.\n\t\t\t")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-col",
+            { staticClass: "mt-4" },
+            [
+              _c("label", { attrs: { for: "videoSource" } }, [
+                _vm._v("Video Source")
+              ]),
+              _vm._v(" "),
+              _c("b-input", {
+                attrs: {
+                  state: _vm.validVideoSource,
+                  id: "videoSource",
+                  name: "videoSource"
+                },
+                model: {
+                  value: _vm.videoSource,
+                  callback: function($$v) {
+                    _vm.videoSource = $$v
+                  },
+                  expression: "videoSource"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "b-form-invalid-feedback",
+                { attrs: { state: _vm.validVideoSource } },
+                [
+                  _vm._v(
+                    "\n\t\t\t\tVideo source must be 16-128 characters long.\n\t\t\t"
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("b-form-valid-feedback", [
+                _vm._v("\n\t\t\t\tLooks Good.\n\t\t\t")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-col",
+            { staticClass: "mt-4" },
+            [
+              _c("label", { attrs: { for: "duration" } }, [
+                _vm._v("Video Duration")
+              ]),
+              _vm._v(" "),
+              _c("b-form-timepicker", {
+                attrs: {
+                  locale: "de",
+                  "show-seconds": "",
+                  state: _vm.validVideoDuration
+                },
+                model: {
+                  value: _vm.duration,
+                  callback: function($$v) {
+                    _vm.duration = $$v
+                  },
+                  expression: "duration"
+                }
+              })
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        { staticClass: "mt-4" },
+        [
+          _c(
+            "b-col",
+            { staticClass: "text-right" },
+            [
+              _c(
+                "b-button",
+                {
+                  attrs: {
+                    variant: "secondary",
+                    href:
+                      "/course/" +
+                      _vm.course_id +
+                      "/section/" +
+                      _vm.section_id +
+                      "/lesson",
+                    size: "big"
+                  }
+                },
+                [_vm._v("\n\t\t\t\tCancel\n\t\t\t")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-button",
+                { attrs: { variant: "primary", size: "big", type: "submit" } },
+                [_vm._v("\n\t\t\t\tConfirm\n\t\t\t")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.editing
+        ? _c("input", {
+            attrs: { type: "hidden", name: "_method", value: "PUT" }
+          })
+        : _vm._e(),
+      _vm._v(" "),
+      _c("input", {
+        attrs: { type: "hidden", name: "_token" },
+        domProps: { value: _vm.csrf }
+      })
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
