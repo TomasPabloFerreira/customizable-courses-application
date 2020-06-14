@@ -95,6 +95,7 @@ export default {
 			this.editing = true;
 			this.title = this.lesson.title;
 			this.videoSource = this.lesson.video_source;
+			this.duration = this.lesson.duration;
 		}
 	},
 	methods: {

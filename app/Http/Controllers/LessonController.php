@@ -39,8 +39,15 @@ class LessonController extends Controller
 		]);
 	}
 
-	public function edit()
+	public function edit($courseId, $sectionId, $id)
 	{
+		$lesson = Lesson::findOrFail($id);
+
+		return view('course.section.lesson.form', [
+			'courseId' => $courseId,
+			'sectionId' => $sectionId,
+			'lesson' => $lesson
+		]);
 	}
 
 	public function create($courseId, $sectionId) {
@@ -78,11 +85,28 @@ class LessonController extends Controller
 
     /**
      * Update the specified resource in storage.
-     *
+     * 
+	 * @param  \Illuminate\Http\Request $request
+	 * @param  int  $courseId
+	 * @param  int  $sectionId
+	 * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-	public function update ()
+	public function update (Request $request, $courseId, $sectionId, $id)
 	{
+		$request->validate([
+			'title' => 'between:6,64',
+			'video_source' => 'between:16,128',
+			'duration' => 'required'
+		]);
+		$lesson = Lesson::find($id);
+		$lesson->title = $request->input('title');
+		$lesson->video_source = $request->input('videoSource');
+		$lesson->duration = $request->input('duration');
+
+		$lesson->save();
+		return redirect("/course/$courseId/section/$sectionId/lesson")
+			->with('success', 'Lesson has been updated'); 
 	}
 
 	/**

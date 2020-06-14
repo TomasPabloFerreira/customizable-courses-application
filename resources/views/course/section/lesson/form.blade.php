@@ -23,7 +23,7 @@
 				<lesson-form
 					:course_id="{{ $courseId }}"
 					:section_id="{{ $sectionId }}"
-					:section='@json($lesson)'
+					:lesson='@json($lesson)'
 				>
 				</lesson-form>
 			@endisset
