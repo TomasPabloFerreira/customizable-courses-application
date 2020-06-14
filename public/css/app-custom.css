@@ -5,3 +5,7 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.bg-secondary {
+	background-color: #797596 !important;
+}
