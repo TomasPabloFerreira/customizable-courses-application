@@ -5,8 +5,10 @@
 <b-container fluid class="header bg-secondary">
 	<h1 class="display-3 text-white">Courses</h1>
 </b-container>
-
 <b-container class="my-4">
+	<blockquote>
+		This blockquote is optional
+	</blockquote>
 	<div>
 		<b-card-group columns>
 			@foreach ($courses as $course)
