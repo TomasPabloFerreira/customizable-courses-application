@@ -26,7 +26,12 @@
 					</b-card-text>
 					<template v-slot:footer>
 						<small class="text-muted">
-							n lessons
+							{{ $course->lessons_count }}
+							@if($course->lessons_count === 1)
+								lesson
+							@else
+								lessons
+							@endif
 						</small>
 					</template>
 				</b-card>
@@ -34,5 +39,4 @@
 		</b-card-group>
 	</div>
 </b-container>
-
 @endsection

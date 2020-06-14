@@ -18,4 +18,9 @@ class CourseSection extends Model
     ];
 	
 	public $timestamps = false;
+
+	public function lessons () 
+	{
+		return $this->hasMany('App\Lesson');
+	}
 }

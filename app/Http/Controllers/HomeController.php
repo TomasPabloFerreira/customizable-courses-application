@@ -24,7 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-		$courses = Course::all();
+		$courses = Course::withCount('lessons')->get();
+
         return view('home', ['courses' => $courses]);
     }
 }

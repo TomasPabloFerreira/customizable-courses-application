@@ -25,4 +25,8 @@ class Course extends Model
 	{
 		return $this->hasMany('App\CourseSection');
 	}
+	public function lessons()
+	{
+		return $this->hasManyThrough('App\Lesson', 'App\CourseSection');
+	}
 }
