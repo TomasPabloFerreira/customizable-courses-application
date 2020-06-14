@@ -112,9 +112,16 @@ class LessonController extends Controller
 	/**
 	 * Remove the specified resource from storage.
 	 *
-     * @return \Illuminate\Http\Response
-     */
-	public function destroy ()
+ 	 * @param  int  $courseId
+	 * @param  int  $sectionId
+	 * @param  int  $id
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy ($courseId, $sectionId, $id)
 	{
+		$lesson = Lesson::find($id);
+		$lesson->delete();
+		return redirect("/course/$courseId/section/$sectionId/lesson")
+			->with('success', 'Lesson has been deleted'); 
 	}
 }
