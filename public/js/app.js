@@ -2497,8 +2497,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _this = undefined;
-
+//
+//
 //
 //
 //
@@ -2597,7 +2597,7 @@ var _this = undefined;
   },
   methods: {
     validateForm: function validateForm(e) {
-      if (_this.validTitle) {
+      if (this.validTitle && this.validVideoSource && this.validVideoDuration) {
         return true;
       }
 
@@ -83049,7 +83049,9 @@ var render = function() {
                 attrs: {
                   locale: "de",
                   "show-seconds": "",
-                  state: _vm.validVideoDuration
+                  state: _vm.validVideoDuration,
+                  id: "duration",
+                  name: "duration"
                 },
                 model: {
                   value: _vm.duration,

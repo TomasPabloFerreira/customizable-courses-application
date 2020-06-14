@@ -53,10 +53,27 @@ class LessonController extends Controller
 	/**
 	 * Store a newly created resource in storage.
 	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  int  $courseId
+	 * @param  int  $sectionId
 	 * @return \Illuminate\Http\Response
 	 */
-	public function store ()
+	public function store (Request $request, $courseId, $sectionId)
 	{
+		$request->validate([
+			'title' => 'between:6,64',
+			'video_source' => 'between:16,128',
+			'duration' => 'required'
+		]);
+		$lesson = new Lesson([
+			'title' => $request->input('title'),
+			'video_source' => $request->input('videoSource'),
+			'duration' => $request->input('duration'),
+			'course_section_id' => $sectionId
+		]);
+		$lesson->save();
+		return redirect("/course/$courseId/section/$sectionId/lesson")
+			->with('success', 'Lesson has been created'); 
 	}
 
     /**

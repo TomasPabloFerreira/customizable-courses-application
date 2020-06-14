@@ -40,6 +40,8 @@
 					locale="de"
 					show-seconds
 					:state="validVideoDuration"
+					id="duration"
+					name="duration"
 				>
 				</b-form-timepicker>
 			</b-col>
@@ -66,45 +68,46 @@
 </template>
 
 <script>
-    export default {
-		props: ['course_id', 'section_id', 'lesson'],
-		data: () => {
-			return {
-				editing: false,
-				title: '',
-				videoSource: '',
-				duration: null,
-				csrf: document.head.querySelector('meta[name="csrf-token"]')
-					.content
-			};
+export default {
+	props: ['course_id', 'section_id', 'lesson'],
+	data: () => {
+		return {
+			editing: false,
+			title: '',
+			videoSource: '',
+			duration: null,
+			csrf: document.head.querySelector('meta[name="csrf-token"]').content
+		};
+	},
+	computed: {
+		validTitle() {
+			return this.title.length >= 6 && this.title.length <= 64;
 		},
-		computed: {
-			validTitle() {
-				return this.title.length >= 6 && this.title.length <= 64;
-			},
-			validVideoSource() {
-				return this.videoSource.length >= 16 && this.videoSource.length <= 128;
-			},
-			validVideoDuration(){
-				return this.duration !== null;
-			}
+		validVideoSource() {
+			return this.videoSource.length >= 16 && this.videoSource.length <= 128;
 		},
-		mounted() {
-			if(typeof this.lesson != 'undefined') {
-				this.editing = true;
-				this.title = this.lesson.title;
-				this.videoSource = this.lesson.video_source;
+		validVideoDuration(){
+			return this.duration !== null;
+		}
+	},
+	mounted() {
+		if(typeof this.lesson != 'undefined') {
+			this.editing = true;
+			this.title = this.lesson.title;
+			this.videoSource = this.lesson.video_source;
+		}
+	},
+	methods: {
+		validateForm: function (e) {
+			if(
+				this.validTitle
+				&& this.validVideoSource
+				&& this.validVideoDuration
+			) {
+				return true;
 			}
-		},
-		methods: {
-			validateForm: (e) => {
-				if(
-					this.validTitle
-				) {
-					return true;
-				}
-				e.preventDefault();
-			}
+			e.preventDefault();
 		}
 	}
+}
 </script>
