@@ -2,7 +2,7 @@
 
 @section('content')
 
-<b-container fluid="lg">
+<b-container fluid="lg" class="py-4">
 
     	<b-row class="text-center mt-1 mb-1">
         	<b-col>
