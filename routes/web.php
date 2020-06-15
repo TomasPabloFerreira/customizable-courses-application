@@ -39,6 +39,8 @@ Route::delete('/user/{id}', 'UserController@destroy')->name('user.destroy');
 
 Route::get('/course', 'CourseController@index')->name('course.index');
 
+Route::get('/course/{id}', 'CourseController@show')->name('course.show');
+
 Route::get('/course/{id}/edit', 'CourseController@edit')->name('course.edit');
 
 Route::get('/course/create', 'CourseController@create')->name('course.create');

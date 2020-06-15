@@ -102,5 +102,20 @@ class CourseController extends Controller
 		return redirect('/course')->with('success', 'Course has been deleted');	
 	}
 
+	/**
+	 * Show the course details.
+	 *
+	 * @param  int  $id
+	 * 
+	 * @return View
+	 */
+	public function show ($id)
+	{
+		$course = Course::with(['sections', 'sections.lessons'])
+			->whereIn('id', [$id])->get()
+			->find($id);
+
+		return view('course.detail', ['course' => $course]);
+	}
 }
 
