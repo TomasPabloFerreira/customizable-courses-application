@@ -40,6 +40,7 @@ Vue.component('course-section-grid', require('./components/CourseSectionGridComp
 Vue.component('course-section-form', require('./components/CourseSectionFormComponent.vue').default);
 Vue.component('lesson-grid', require('./components/LessonGridComponent.vue').default);
 Vue.component('lesson-form', require('./components/LessonFormComponent.vue').default);
+Vue.component('lesson-list', require('./components/LessonListComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -21,8 +21,9 @@
 	</b-row>
 </b-container>
 
-<b-container class="my-4">
+<b-container class="lesson-list-container">
 
+	<lesson-list :course='@json($course)'></lesson-list>
 
 </b-container>
 

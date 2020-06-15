@@ -27,8 +27,16 @@
 	font-size: 1.2em;
 }
 
+.lesson-list-container {
+	margin-top: 5vw;
+}
+
+/* General */
 .bg-secondary {
 	background-color: #797596 !important;
+}
+.text-bold {
+	font-weight: bold;
 }
 
 /* Blockquote */
