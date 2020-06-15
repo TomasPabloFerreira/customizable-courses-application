@@ -2821,6 +2821,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["course"]
 });
@@ -83472,7 +83485,7 @@ var render = function() {
         _c(
           "div",
           { attrs: { role: "tablist" } },
-          _vm._l(_vm.course.sections, function(section, index) {
+          _vm._l(_vm.course.sections, function(section, sectionIndex) {
             return _c(
               "b-card",
               {
@@ -83495,8 +83508,8 @@ var render = function() {
                           {
                             name: "b-toggle",
                             rawName: "v-b-toggle",
-                            value: "accordion-" + index,
-                            expression: "'accordion-' + index"
+                            value: "accordion-" + sectionIndex,
+                            expression: "'accordion-' + sectionIndex"
                           }
                         ],
                         attrs: { block: "", variant: "info" }
@@ -83517,7 +83530,7 @@ var render = function() {
                   "b-collapse",
                   {
                     attrs: {
-                      id: "accordion-" + index,
+                      id: "accordion-" + sectionIndex,
                       accordion: "my-accordion",
                       role: "tabpanel"
                     }
@@ -83527,11 +83540,39 @@ var render = function() {
                       "b-list-group",
                       { attrs: { flush: "" } },
                       [
-                        _c("b-list-group-item", { attrs: { href: "#" } }, [
-                          _vm._v("\n\t\t\t\t\t\t\tLesson\n\t\t\t\t\t\t")
-                        ])
+                        section.lessons.length
+                          ? _vm._l(section.lessons, function(lesson) {
+                              return _c(
+                                "b-list-group-item",
+                                {
+                                  key: lesson.id,
+                                  attrs: {
+                                    href:
+                                      _vm.course.id +
+                                      "/section/" +
+                                      section.id +
+                                      "/lesson/" +
+                                      lesson.id
+                                  }
+                                },
+                                [
+                                  _vm._v(
+                                    "\n\t\t\t\t\t\t\t\t" +
+                                      _vm._s(lesson.title) +
+                                      "\n\t\t\t\t\t\t\t"
+                                  )
+                                ]
+                              )
+                            })
+                          : [
+                              _c("b-list-group-item", [
+                                _vm._v(
+                                  "\n\t\t\t\t\t\t\t\tNo lessons available\n\t\t\t\t\t\t\t"
+                                )
+                              ])
+                            ]
                       ],
-                      1
+                      2
                     )
                   ],
                   1
