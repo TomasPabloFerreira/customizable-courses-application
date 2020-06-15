@@ -6,6 +6,27 @@
 	justify-content: center;
 }
 
+.course-header {
+	min-height: 23vh;
+}
+
+.course-header img {
+	height: 25vh;
+	left: 10vw;
+	top: 10vh;
+	position: absolute;
+}
+
+.course-header .text-row {
+	padding-top: 2vh;
+}
+
+.course-header .description {
+	color: white;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
 .bg-secondary {
 	background-color: #797596 !important;
 }
