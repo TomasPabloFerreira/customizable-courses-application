@@ -2834,8 +2834,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ["course"]
+  props: ["course", "samepath"]
 });
 
 /***/ }),
@@ -83599,11 +83603,13 @@ var render = function() {
                                   key: lesson.id,
                                   attrs: {
                                     href:
-                                      _vm.course.id +
-                                      "/section/" +
-                                      section.id +
-                                      "/lesson/" +
-                                      lesson.id
+                                      typeof _vm.samepath == "undefined"
+                                        ? _vm.course.id +
+                                          "/section/" +
+                                          section.id +
+                                          "/lesson/" +
+                                          lesson.id
+                                        : String(lesson.id)
                                   }
                                 },
                                 [
@@ -84275,7 +84281,14 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c("b-col", { attrs: { cols: "12", md: "4" } })
+          _c(
+            "b-col",
+            { attrs: { cols: "12", md: "4" } },
+            [
+              _c("lesson-list", { attrs: { course: _vm.course, samepath: "" } })
+            ],
+            1
+          )
         ],
         1
       )

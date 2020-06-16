@@ -11,7 +11,7 @@
 				</b-embed>
 			</b-col>
 			<b-col cols="12" md="4">
-
+				<lesson-list :course="course" samepath></lesson-list>
 			</b-col>
 		</b-row>
 

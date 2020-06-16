@@ -35,9 +35,13 @@
 								<b-list-group-item
 									v-for="lesson in section.lessons"
 									:key="lesson.id"
-									:href="course.id + '/section/'
-										+ section.id + '/lesson/'
-										+ lesson.id"
+									:href="
+										typeof samepath == 'undefined'
+										? course.id + '/section/'
+											+ section.id + '/lesson/'
+											+ lesson.id
+										: String(lesson.id)
+										"
 								>
 									{{ lesson.title }}
 								</b-list-group-item>
@@ -57,6 +61,6 @@
 
 <script>
 export default {
-	props: ["course"]
+	props: ["course", "samepath"]
 };
 </script>
