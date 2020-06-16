@@ -9,15 +9,14 @@
 					allowfullscreen
 				>
 				</b-embed>
-				<div style="background-color: #4a4a4a; padding: 1% 2%;">
-					<span class="text-white text-bold" style="font-size: 150%;">{{ lesson.title }}</span>
+				<div class="course-title-container">
+					<span>{{ lesson.title }}</span>
 				</div>
 			</b-col>
 			<b-col cols="12" md="4">
 				<lesson-list :course="course" samepath></lesson-list>
 			</b-col>
 		</b-row>
-
 	</b-container>
 </template>
 

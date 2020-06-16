@@ -43,6 +43,18 @@
 	font-size: 150%;
 }
 
+.course-title-container {
+	background-color: #4a4a4a;
+	padding: 1% 2%;
+	margin-bottom: 1.5rem;
+}
+
+.course-title-container span {
+	color: white;
+	font-weight: bold;
+	font-size: 150%;
+}
+
 /* General */
 .bg-secondary {
 	background-color: #797596 !important;
