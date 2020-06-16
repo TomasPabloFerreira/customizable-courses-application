@@ -23,60 +23,60 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // User
 
-Route::get('/user', 'UserController@index')->name('user.index');
+Route::get('/user', 'UserController@index')->name('user.index')->middleware('admin');
 
-Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit');
+Route::get('/user/{id}/edit', 'UserController@edit')->name('user.edit')->middleware('admin');
 
-Route::get('/user/create', 'UserController@create')->name('user.create');
+Route::get('/user/create', 'UserController@create')->name('user.create')->middleware('admin');
 
-Route::post('/user', 'UserController@store')->name('user.store');
+Route::post('/user', 'UserController@store')->name('user.store')->middleware('admin');
 
-Route::put('/user/{id}', 'UserController@update')->name('user.update');
+Route::put('/user/{id}', 'UserController@update')->name('user.update')->middleware('admin');
 
-Route::delete('/user/{id}', 'UserController@destroy')->name('user.destroy');
+Route::delete('/user/{id}', 'UserController@destroy')->name('user.destroy')->middleware('admin');
 
 // Course
 
-Route::get('/course', 'CourseController@index')->name('course.index');
+Route::get('/course', 'CourseController@index')->name('course.index')->middleware('admin');
 
-Route::get('/course/create', 'CourseController@create')->name('course.create');
+Route::get('/course/create', 'CourseController@create')->name('course.create')->middleware('admin');
 
-Route::post('/course', 'CourseController@store')->name('course.store');
+Route::post('/course', 'CourseController@store')->name('course.store')->middleware('admin');
 
 Route::get('/course/{id}', 'CourseController@show')->name('course.show');
 
-Route::get('/course/{id}/edit', 'CourseController@edit')->name('course.edit');
+Route::get('/course/{id}/edit', 'CourseController@edit')->name('course.edit')->middleware('admin');
 
-Route::put('/course/{id}', 'CourseController@update')->name('course.update');
+Route::put('/course/{id}', 'CourseController@update')->name('course.update')->middleware('admin');
 
-Route::delete('/course/{id}', 'CourseController@destroy')->name('course.destroy');
+Route::delete('/course/{id}', 'CourseController@destroy')->name('course.destroy')->middleware('admin');
 
 // Course Section
 
-Route::get('/course/{courseId}/section', 'CourseSectionController@index')->name('course.section.index');
+Route::get('/course/{courseId}/section', 'CourseSectionController@index')->name('course.section.index')->middleware('admin');
 
-Route::get('/course/{courseId}/section/{id}/edit', 'CourseSectionController@edit')->name('course.section.edit');
+Route::get('/course/{courseId}/section/{id}/edit', 'CourseSectionController@edit')->name('course.section.edit')->middleware('admin');
 
-Route::get('/course/{courseId}/section/create', 'CourseSectionController@create')->name('course.section.create');
+Route::get('/course/{courseId}/section/create', 'CourseSectionController@create')->name('course.section.create')->middleware('admin');
 
-Route::post('/course/{courseId}/section', 'CourseSectionController@store')->name('course.section.store');
+Route::post('/course/{courseId}/section', 'CourseSectionController@store')->name('course.section.store')->middleware('admin');
 
-Route::put('/course/{courseId}/section/{id}', 'CourseSectionController@update')->name('course.section.update');
+Route::put('/course/{courseId}/section/{id}', 'CourseSectionController@update')->name('course.section.update')->middleware('admin');
 
-Route::delete('/course/{courseId}/section/{id}', 'CourseSectionController@destroy')->name('course.section.destroy');
+Route::delete('/course/{courseId}/section/{id}', 'CourseSectionController@destroy')->name('course.section.destroy')->middleware('admin');
 
 // Lesson
 
-Route::get('/course/{courseId}/section/{sectionId}/lesson', 'LessonController@index')->name('lesson.index');
+Route::get('/course/{courseId}/section/{sectionId}/lesson', 'LessonController@index')->name('lesson.index')->middleware('admin');
 
-Route::get('/course/{courseId}/section/{sectionId}/lesson/create', 'LessonController@create')->name('lesson.create');
+Route::get('/course/{courseId}/section/{sectionId}/lesson/create', 'LessonController@create')->name('lesson.create')->middleware('admin');
 
-Route::post('/course/{courseId}/section/{sectionId}/lesson', 'LessonController@store')->name('lesson.store');
+Route::post('/course/{courseId}/section/{sectionId}/lesson', 'LessonController@store')->name('lesson.store')->middleware('admin');
 
 Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}', 'LessonController@show')->name('lesson.show');
 
-Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}/edit', 'LessonController@edit')->name('lesson.edit');
+Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}/edit', 'LessonController@edit')->name('lesson.edit')->middleware('admin');
 
-Route::put('/course/{courseId}/section/{sectionId}/lesson/{id}', 'LessonController@update')->name('lesson.update');
+Route::put('/course/{courseId}/section/{sectionId}/lesson/{id}', 'LessonController@update')->name('lesson.update')->middleware('admin');
 
-Route::delete('/course/{courseId}/section/{sectionId}/lesson/{id}', 'LessonController@destroy')->name('lesson.destroy');
+Route::delete('/course/{courseId}/section/{sectionId}/lesson/{id}', 'LessonController@destroy')->name('lesson.destroy')->middleware('admin');
