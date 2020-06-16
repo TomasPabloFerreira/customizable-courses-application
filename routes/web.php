@@ -39,13 +39,13 @@ Route::delete('/user/{id}', 'UserController@destroy')->name('user.destroy');
 
 Route::get('/course', 'CourseController@index')->name('course.index');
 
-Route::get('/course/{id}', 'CourseController@show')->name('course.show');
-
-Route::get('/course/{id}/edit', 'CourseController@edit')->name('course.edit');
-
 Route::get('/course/create', 'CourseController@create')->name('course.create');
 
 Route::post('/course', 'CourseController@store')->name('course.store');
+
+Route::get('/course/{id}', 'CourseController@show')->name('course.show');
+
+Route::get('/course/{id}/edit', 'CourseController@edit')->name('course.edit');
 
 Route::put('/course/{id}', 'CourseController@update')->name('course.update');
 
@@ -69,13 +69,13 @@ Route::delete('/course/{courseId}/section/{id}', 'CourseSectionController@destro
 
 Route::get('/course/{courseId}/section/{sectionId}/lesson', 'LessonController@index')->name('lesson.index');
 
-Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}', 'LessonController@show')->name('lesson.show');
-
-Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}/edit', 'LessonController@edit')->name('lesson.edit');
-
 Route::get('/course/{courseId}/section/{sectionId}/lesson/create', 'LessonController@create')->name('lesson.create');
 
 Route::post('/course/{courseId}/section/{sectionId}/lesson', 'LessonController@store')->name('lesson.store');
+
+Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}', 'LessonController@show')->name('lesson.show');
+
+Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}/edit', 'LessonController@edit')->name('lesson.edit');
 
 Route::put('/course/{courseId}/section/{sectionId}/lesson/{id}', 'LessonController@update')->name('lesson.update');
 
