@@ -31,6 +31,18 @@
 	margin-top: 5vw;
 }
 
+.player-course-header {
+	min-height: 6vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.player-course-header a {
+	color: white;
+	font-weight: bold;
+	font-size: 150%;
+}
+
 /* General */
 .bg-secondary {
 	background-color: #797596 !important;

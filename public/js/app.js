@@ -3254,6 +3254,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['course', 'sectionid', 'lessonid'],
   data: function data() {
@@ -84276,7 +84279,27 @@ var render = function() {
                   src: _vm.lesson.video_source,
                   allowfullscreen: ""
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c(
+                "div",
+                {
+                  staticStyle: {
+                    "background-color": "#4a4a4a",
+                    padding: "1% 2%"
+                  }
+                },
+                [
+                  _c(
+                    "span",
+                    {
+                      staticClass: "text-white text-bold",
+                      staticStyle: { "font-size": "150%" }
+                    },
+                    [_vm._v(_vm._s(_vm.lesson.title))]
+                  )
+                ]
+              )
             ],
             1
           ),
