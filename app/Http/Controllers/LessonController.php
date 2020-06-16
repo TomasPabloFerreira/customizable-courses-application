@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lesson;
+use App\Course;
 
 class LessonController extends Controller
 {
@@ -123,5 +124,25 @@ class LessonController extends Controller
 		$lesson->delete();
 		return redirect("/course/$courseId/section/$sectionId/lesson")
 			->with('success', 'Lesson has been deleted'); 
+	}
+
+	/**
+	 * Show the lesson.
+	 *
+	 * @param  int  $id
+	 * 
+	 * @return View
+	 */
+	public function show ($courseId, $sectionId, $id)
+	{
+		$course = Course::with(['sections', 'sections.lessons'])
+			->wherein('id', [$courseId])->get()
+			->find($courseId);
+
+		return view('course.section.lesson.player', [
+			'course' => $course,
+			'sectionId' => $sectionId,
+			'lessonId' => $id
+		]);
 	}
 }

@@ -69,6 +69,8 @@ Route::delete('/course/{courseId}/section/{id}', 'CourseSectionController@destro
 
 Route::get('/course/{courseId}/section/{sectionId}/lesson', 'LessonController@index')->name('lesson.index');
 
+Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}', 'LessonController@show')->name('lesson.show');
+
 Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}/edit', 'LessonController@edit')->name('lesson.edit');
 
 Route::get('/course/{courseId}/section/{sectionId}/lesson/create', 'LessonController@create')->name('lesson.create');

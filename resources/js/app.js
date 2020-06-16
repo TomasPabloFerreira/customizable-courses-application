@@ -41,6 +41,7 @@ Vue.component('course-section-form', require('./components/CourseSectionFormComp
 Vue.component('lesson-grid', require('./components/LessonGridComponent.vue').default);
 Vue.component('lesson-form', require('./components/LessonFormComponent.vue').default);
 Vue.component('lesson-list', require('./components/LessonListComponent.vue').default);
+Vue.component('video-player', require('./components/VideoPlayerComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
