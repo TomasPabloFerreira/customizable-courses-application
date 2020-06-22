@@ -2983,7 +2983,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['roles', 'user'],
+  props: ['route', 'roles', 'user'],
   data: function data() {
     return {
       editing: false,
@@ -83675,7 +83675,7 @@ var render = function() {
       _c(
         "b-form",
         {
-          attrs: { method: "post", action: "./" },
+          attrs: { method: "post", action: _vm.route },
           on: { submit: _vm.validateForm }
         },
         [

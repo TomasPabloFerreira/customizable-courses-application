@@ -20,12 +20,19 @@
 	<b-row class="justify-content-md-center mt-4">
 		<b-col cols="12">
 			@isset($user)
-				<user-form :roles='@json($roles)' :user='@json($user)'>
+				<user-form
+					route="{{route('user.update', ['id' => $user->id])}}"
+					:roles='@json($roles)'
+					:user='@json($user)'
+				>
 				</user-form>
 			@endisset
 
 			@empty($user)
-				<user-form :roles='@json($roles)' ></user-form>
+				<user-form
+					route="{{route('user.store')}}"
+					:roles='@json($roles)'
+				></user-form>
 			@endempty
 		</b-col>
 	</b-row>

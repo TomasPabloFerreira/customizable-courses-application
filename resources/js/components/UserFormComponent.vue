@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<b-form  @submit="validateForm" method="post" action="./">
+		<b-form  @submit="validateForm" method="post" :action="route">
 			<b-row cols="1" cols-sm="2" cols-lg="3">
 				<b-col class="mt-3">
 					<label for="name">Name</label>
@@ -129,7 +129,7 @@
 
 <script>
 export default {
-    props: ['roles', 'user'],
+    props: ['route', 'roles', 'user'],
 	data: () => {
 		return {
 			editing: false,

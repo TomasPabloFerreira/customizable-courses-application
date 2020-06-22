@@ -46,7 +46,7 @@ class UserController extends Controller
 
 	public function edit($id)
 	{
-		$user = User::findOrFail($id, ['name', 'surname', 'email', 'role_id']);
+		$user = User::findOrFail($id, ['id', 'name', 'surname', 'email', 'role_id']);
 		return view('user.form', [
 			'user' => $user,
 			'roles' => Role::getSelector()
