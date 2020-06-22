@@ -83608,7 +83608,7 @@ var render = function() {
                                       typeof _vm.samepath == "undefined"
                                         ? _vm.course.id +
                                           "/section/" +
-                                          section.id +
+                                          lesson.course_section_id +
                                           "/lesson/" +
                                           lesson.id
                                         : String(lesson.id)

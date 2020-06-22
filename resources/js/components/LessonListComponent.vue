@@ -38,7 +38,7 @@
 									:href="
 										typeof samepath == 'undefined'
 										? course.id + '/section/'
-											+ section.id + '/lesson/'
+											+ lesson.course_section_id + '/lesson/'
 											+ lesson.id
 										: String(lesson.id)
 										"
