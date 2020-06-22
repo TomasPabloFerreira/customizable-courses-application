@@ -21,6 +21,10 @@
 		<b-col cols="12">
 			@isset($section)
 				<course-section-form
+					route="{{route('course.section.update',[
+						'courseId' => $courseId,
+						'id' => $section->id
+					])}}"
 					:course_id="{{ $courseId }}"
 					:section='@json($section)'
 				>
@@ -28,7 +32,12 @@
 			@endisset
 
 			@empty($section)
-				<course-section-form :course_id="{{ $courseId }}">
+				<course-section-form
+					route="{{route('course.section.store',[
+						'courseId' => $courseId
+					])}}"	
+					:course_id="{{ $courseId }}"
+				>
 				</course-section-form>
 			@endempty
 		</b-col>

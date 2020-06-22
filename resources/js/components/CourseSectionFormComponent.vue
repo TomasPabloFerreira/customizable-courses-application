@@ -1,5 +1,5 @@
 <template>
-	<b-form @submit="validateForm" method="post" action="./">
+	<b-form @submit="validateForm" method="post" :action="route">
 		<b-row cols="12" col-md="6">
 			<b-col>
 				<label for="title">Title</label>
@@ -40,7 +40,7 @@
 
 <script>
 export default {
-	props: ['course_id', 'section'],
+	props: ['route', 'course_id', 'section'],
 	data: () => {
 		return {
 			editing: false,
