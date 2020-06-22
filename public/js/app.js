@@ -1984,7 +1984,7 @@ var _this = undefined;
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['course'],
+  props: ['route', 'course'],
   data: function data() {
     return {
       editing: false,
@@ -82190,7 +82190,7 @@ var render = function() {
   return _c(
     "b-form",
     {
-      attrs: { method: "post", action: "./" },
+      attrs: { method: "post", action: _vm.route },
       on: { submit: _vm.validateForm }
     },
     [

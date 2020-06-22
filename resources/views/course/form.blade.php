@@ -20,11 +20,15 @@
 	<b-row class="justify-content-md-center mt-4">
 		<b-col cols="12">
 			@isset($course)
-				<course-form :course='@json($course)'></course-form>
+				<course-form
+					route="{{route('course.update', ['id' => $course->id])}}"
+					:course='@json($course)'
+				>
+				</course-form>
 			@endisset
 
 			@empty($course)
-				<course-form></course-form>
+				<course-form route="{{route('course.store')}}"></course-form>
 			@endempty
 		</b-col>
 	</b-row>
