@@ -21,6 +21,11 @@
 		<b-col cols="12">
 			@isset($lesson)
 				<lesson-form
+					route="{{route('lesson.update',[
+						'courseId' => $courseId,
+						'sectionId' => $sectionId,
+						'id' => $lesson->id
+					])}}"
 					:course_id="{{ $courseId }}"
 					:section_id="{{ $sectionId }}"
 					:lesson='@json($lesson)'
@@ -30,6 +35,10 @@
 
 			@empty($lesson)
 				<lesson-form
+					route="{{route('lesson.store',[
+						'courseId' => $courseId,
+						'sectionId' => $sectionId
+					])}}"
 					:course_id="{{ $courseId }}"
 					:section_id="{{ $sectionId }}"
 				>

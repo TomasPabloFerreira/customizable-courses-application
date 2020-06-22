@@ -2567,7 +2567,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['course_id', 'section_id', 'lesson'],
+  props: ['route', 'course_id', 'section_id', 'lesson'],
   data: function data() {
     return {
       editing: false,
@@ -83083,7 +83083,7 @@ var render = function() {
   return _c(
     "b-form",
     {
-      attrs: { method: "post", action: "./" },
+      attrs: { method: "post", action: _vm.route },
       on: { submit: _vm.validateForm }
     },
     [

@@ -1,5 +1,5 @@
 <template>
-	<b-form @submit="validateForm" method="post" action="./">
+	<b-form @submit="validateForm" method="post" :action="route">
 		<b-row cols="1" cols-md="2">
 			<b-col class="mt-4">
 				<label for="title">Title</label>
@@ -69,7 +69,7 @@
 
 <script>
 export default {
-	props: ['course_id', 'section_id', 'lesson'],
+	props: ['route', 'course_id', 'section_id', 'lesson'],
 	data: () => {
 		return {
 			editing: false,
