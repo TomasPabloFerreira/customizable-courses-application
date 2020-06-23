@@ -40,7 +40,8 @@
 										? course.id + '/section/'
 											+ lesson.course_section_id + '/lesson/'
 											+ lesson.id
-										: String(lesson.id)
+										: '../../'+ lesson.course_section_id
+											+ '/lesson/' + lesson.id
 										"
 								>
 									{{ lesson.title }}

@@ -2838,6 +2838,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["course", "samepath"]
 });
@@ -83611,7 +83612,10 @@ var render = function() {
                                           lesson.course_section_id +
                                           "/lesson/" +
                                           lesson.id
-                                        : String(lesson.id)
+                                        : "../../" +
+                                          lesson.course_section_id +
+                                          "/lesson/" +
+                                          lesson.id
                                   }
                                 },
                                 [
