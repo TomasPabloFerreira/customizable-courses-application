@@ -51,6 +51,12 @@ Route::put('/course/{id}', 'CourseController@update')->name('course.update')->mi
 
 Route::delete('/course/{id}', 'CourseController@destroy')->name('course.destroy')->middleware('admin');
 
+// Course Acquisition
+
+Route::get('/course-acquisition', 'CourseAcquisitionController@index')
+	->name('course.acquisition.index')
+	->middleware('admin');
+
 // Course Section
 
 Route::get('/course/{courseId}/section', 'CourseSectionController@index')->name('course.section.index')->middleware('admin');
