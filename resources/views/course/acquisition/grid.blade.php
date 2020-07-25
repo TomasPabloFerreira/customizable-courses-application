@@ -13,6 +13,9 @@
 	</b-row>
 	<b-row>
 		<b-col cols="12">
+			<course-acquisition-grid
+				:courseacquisitions='@json($courseAcquisitions)'
+			></course-acquisition-grid>
 		</b-col>
 	</b-row>
 </b-container>

@@ -36,6 +36,11 @@ Vue.component('user-grid', require('./components/UserGridComponent.vue').default
 Vue.component('user-form', require('./components/UserFormComponent.vue').default);
 Vue.component('course-grid', require('./components/CourseGridComponent.vue').default);
 Vue.component('course-form', require('./components/CourseFormComponent.vue').default);
+Vue.component(
+	'course-acquisition-grid',
+	require('./components/CourseAcquisitionGridComponent.vue').default
+);
+Vue.component('course-form', require('./components/CourseFormComponent.vue').default);
 Vue.component('course-section-grid', require('./components/CourseSectionGridComponent.vue').default);
 Vue.component('course-section-form', require('./components/CourseSectionFormComponent.vue').default);
 Vue.component('lesson-grid', require('./components/LessonGridComponent.vue').default);

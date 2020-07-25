@@ -25,12 +25,13 @@ class CourseAcquisitionController extends Controller
 	 */
 	public function index()
 	{
-		$courseAcquisitions = CourseAcquisition::get([
-			'id',
-			'user_id',
-			'course_id',
-			'added_on'
-		]);
+		$courseAcquisitions = CourseAcquisition::with(['course', 'user'])
+			->get([
+				'id',
+				'user_id',
+				'course_id',
+				'added_on'
+			]);
 
 		return view('course.acquisition.grid', [
 			'courseAcquisitions' => $courseAcquisitions
