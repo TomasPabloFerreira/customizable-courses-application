@@ -18,63 +18,66 @@
 					Looks Good.
 				</b-form-valid-feedback>
 			</b-col>
-
-			<b-col class="mt-4">
-				<label for="users-table">Users:</label>
-				<b-form-input
-					v-model="criteria"
-					placeholder="Search"
-					class="mb-2"
-				></b-form-input>
-				<b-table
-					ref="usersTable"
-					selectable
-					select-mode="multi"
-					:items="filteredUsers"
-					:fields="userFields"
-					:filter="criteria"
-					@row-selected="onRowSelected"
-					responsive="sm"
-					per-page="10"
-					:current-page="currentPage"
-					id="users-table"
-				>
-					<template v-slot:cell(selected)="{ rowSelected }">
-						<template v-if="rowSelected">
-							<span aria-hidden="true">&check;</span>
-							<span class="sr-only">Selected</span>
+			<template v-if="course_id">
+				<b-col class="mt-4">
+					<label for="users-table">Users:</label>
+					<b-form-input
+						v-model="criteria"
+						placeholder="Search"
+						class="mb-2"
+					></b-form-input>
+					<b-table
+						ref="usersTable"
+						selectable
+						select-mode="multi"
+						:items="filteredUsers"
+						:fields="userFields"
+						:filter="criteria"
+						@row-selected="onRowSelected"
+						responsive="sm"
+						per-page="10"
+						:current-page="currentPage"
+						id="users-table"
+					>
+						<template v-slot:cell(selected)="{ rowSelected }">
+							<template v-if="rowSelected">
+								<span aria-hidden="true">&check;</span>
+								<span class="sr-only">Selected</span>
+							</template>
+							<template v-else>
+								<span aria-hidden="true">&nbsp;</span>
+								<span class="sr-only">Not selected</span>
+							</template>
 						</template>
-						<template v-else>
-							<span aria-hidden="true">&nbsp;</span>
-							<span class="sr-only">Not selected</span>
-						</template>
-					</template>
-				</b-table>
-			</b-col>
-			<b-col>
-				<input type="hidden" name="users" v-model="selectedUserIds">
-				<input type="hidden" />
-				<b-form-invalid-feedback :state="validUsers">
-					Please select at least one user.
-				</b-form-invalid-feedback>
-				<b-form-valid-feedback :state="validUsers">
-					Looks Good.
-				</b-form-valid-feedback>
-			</b-col>
-			<b-col>
-				<!-- Paginator -->
-				<b-pagination
-					class="justify-content-center"
-					v-model="currentPage"
-					:total-rows="usersCount"
-					per-page="10"
-					aria-controls="users-table"
-				></b-pagination>
-			</b-col>
-			<b-col>
-				<b-button size="sm" @click="selectAllRows">Select all</b-button>
-				<b-button size="sm" @click="clearSelected">Clear selected</b-button>
-			</b-col>
+					</b-table>
+				</b-col>
+				<b-col>
+					<input type="hidden" name="users" v-model="selectedUserIds">
+					<input type="hidden" />
+					<b-form-invalid-feedback :state="validUsers">
+						Please select at least one user.
+					</b-form-invalid-feedback>
+					<b-form-valid-feedback :state="validUsers">
+						Looks Good.
+					</b-form-valid-feedback>
+				</b-col>
+				<b-col>
+					<!-- Paginator -->
+					<b-pagination
+						class="justify-content-center"
+						v-model="currentPage"
+						:total-rows="usersCount"
+						per-page="10"
+						aria-controls="users-table"
+					></b-pagination>
+				</b-col>
+				<b-col>
+					<b-button size="sm" @click="selectAllRows">Select all</b-button>
+					<b-button size="sm" @click="clearSelected">
+						Clear selected
+					</b-button>
+				</b-col>
+			</template>
 		</b-row>
 
 		<b-row class="mt-4">

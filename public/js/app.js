@@ -2002,6 +2002,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'courses', 'users', 'courseacquisitions'],
   data: function data() {
@@ -82559,156 +82562,179 @@ var render = function() {
             1
           ),
           _vm._v(" "),
-          _c(
-            "b-col",
-            { staticClass: "mt-4" },
-            [
-              _c("label", { attrs: { for: "users-table" } }, [
-                _vm._v("Users:")
-              ]),
-              _vm._v(" "),
-              _c("b-form-input", {
-                staticClass: "mb-2",
-                attrs: { placeholder: "Search" },
-                model: {
-                  value: _vm.criteria,
-                  callback: function($$v) {
-                    _vm.criteria = $$v
-                  },
-                  expression: "criteria"
-                }
-              }),
-              _vm._v(" "),
-              _c("b-table", {
-                ref: "usersTable",
-                attrs: {
-                  selectable: "",
-                  "select-mode": "multi",
-                  items: _vm.filteredUsers,
-                  fields: _vm.userFields,
-                  filter: _vm.criteria,
-                  responsive: "sm",
-                  "per-page": "10",
-                  "current-page": _vm.currentPage,
-                  id: "users-table"
-                },
-                on: { "row-selected": _vm.onRowSelected },
-                scopedSlots: _vm._u([
-                  {
-                    key: "cell(selected)",
-                    fn: function(ref) {
-                      var rowSelected = ref.rowSelected
-                      return [
-                        rowSelected
-                          ? [
-                              _c("span", { attrs: { "aria-hidden": "true" } }, [
-                                _vm._v("✓")
-                              ]),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "sr-only" }, [
-                                _vm._v("Selected")
-                              ])
-                            ]
-                          : [
-                              _c("span", { attrs: { "aria-hidden": "true" } }, [
-                                _vm._v(" ")
-                              ]),
-                              _vm._v(" "),
-                              _c("span", { staticClass: "sr-only" }, [
-                                _vm._v("Not selected")
-                              ])
-                            ]
+          _vm.course_id
+            ? [
+                _c(
+                  "b-col",
+                  { staticClass: "mt-4" },
+                  [
+                    _c("label", { attrs: { for: "users-table" } }, [
+                      _vm._v("Users:")
+                    ]),
+                    _vm._v(" "),
+                    _c("b-form-input", {
+                      staticClass: "mb-2",
+                      attrs: { placeholder: "Search" },
+                      model: {
+                        value: _vm.criteria,
+                        callback: function($$v) {
+                          _vm.criteria = $$v
+                        },
+                        expression: "criteria"
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("b-table", {
+                      ref: "usersTable",
+                      attrs: {
+                        selectable: "",
+                        "select-mode": "multi",
+                        items: _vm.filteredUsers,
+                        fields: _vm.userFields,
+                        filter: _vm.criteria,
+                        responsive: "sm",
+                        "per-page": "10",
+                        "current-page": _vm.currentPage,
+                        id: "users-table"
+                      },
+                      on: { "row-selected": _vm.onRowSelected },
+                      scopedSlots: _vm._u(
+                        [
+                          {
+                            key: "cell(selected)",
+                            fn: function(ref) {
+                              var rowSelected = ref.rowSelected
+                              return [
+                                rowSelected
+                                  ? [
+                                      _c(
+                                        "span",
+                                        { attrs: { "aria-hidden": "true" } },
+                                        [_vm._v("✓")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "sr-only" }, [
+                                        _vm._v("Selected")
+                                      ])
+                                    ]
+                                  : [
+                                      _c(
+                                        "span",
+                                        { attrs: { "aria-hidden": "true" } },
+                                        [_vm._v(" ")]
+                                      ),
+                                      _vm._v(" "),
+                                      _c("span", { staticClass: "sr-only" }, [
+                                        _vm._v("Not selected")
+                                      ])
+                                    ]
+                              ]
+                            }
+                          }
+                        ],
+                        null,
+                        false,
+                        1915808787
+                      )
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-col",
+                  [
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.selectedUserIds,
+                          expression: "selectedUserIds"
+                        }
+                      ],
+                      attrs: { type: "hidden", name: "users" },
+                      domProps: { value: _vm.selectedUserIds },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.selectedUserIds = $event.target.value
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("input", { attrs: { type: "hidden" } }),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-invalid-feedback",
+                      { attrs: { state: _vm.validUsers } },
+                      [
+                        _vm._v(
+                          "\n\t\t\t\t\tPlease select at least one user.\n\t\t\t\t"
+                        )
                       ]
-                    }
-                  }
-                ])
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-col",
-            [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.selectedUserIds,
-                    expression: "selectedUserIds"
-                  }
-                ],
-                attrs: { type: "hidden", name: "users" },
-                domProps: { value: _vm.selectedUserIds },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.selectedUserIds = $event.target.value
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("input", { attrs: { type: "hidden" } }),
-              _vm._v(" "),
-              _c(
-                "b-form-invalid-feedback",
-                { attrs: { state: _vm.validUsers } },
-                [_vm._v("\n\t\t\t\tPlease select at least one user.\n\t\t\t")]
-              ),
-              _vm._v(" "),
-              _c(
-                "b-form-valid-feedback",
-                { attrs: { state: _vm.validUsers } },
-                [_vm._v("\n\t\t\t\tLooks Good.\n\t\t\t")]
-              )
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-col",
-            [
-              _c("b-pagination", {
-                staticClass: "justify-content-center",
-                attrs: {
-                  "total-rows": _vm.usersCount,
-                  "per-page": "10",
-                  "aria-controls": "users-table"
-                },
-                model: {
-                  value: _vm.currentPage,
-                  callback: function($$v) {
-                    _vm.currentPage = $$v
-                  },
-                  expression: "currentPage"
-                }
-              })
-            ],
-            1
-          ),
-          _vm._v(" "),
-          _c(
-            "b-col",
-            [
-              _c(
-                "b-button",
-                { attrs: { size: "sm" }, on: { click: _vm.selectAllRows } },
-                [_vm._v("Select all")]
-              ),
-              _vm._v(" "),
-              _c(
-                "b-button",
-                { attrs: { size: "sm" }, on: { click: _vm.clearSelected } },
-                [_vm._v("Clear selected")]
-              )
-            ],
-            1
-          )
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-form-valid-feedback",
+                      { attrs: { state: _vm.validUsers } },
+                      [_vm._v("\n\t\t\t\t\tLooks Good.\n\t\t\t\t")]
+                    )
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-col",
+                  [
+                    _c("b-pagination", {
+                      staticClass: "justify-content-center",
+                      attrs: {
+                        "total-rows": _vm.usersCount,
+                        "per-page": "10",
+                        "aria-controls": "users-table"
+                      },
+                      model: {
+                        value: _vm.currentPage,
+                        callback: function($$v) {
+                          _vm.currentPage = $$v
+                        },
+                        expression: "currentPage"
+                      }
+                    })
+                  ],
+                  1
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-col",
+                  [
+                    _c(
+                      "b-button",
+                      {
+                        attrs: { size: "sm" },
+                        on: { click: _vm.selectAllRows }
+                      },
+                      [_vm._v("Select all")]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "b-button",
+                      {
+                        attrs: { size: "sm" },
+                        on: { click: _vm.clearSelected }
+                      },
+                      [_vm._v("\n\t\t\t\t\tClear selected\n\t\t\t\t")]
+                    )
+                  ],
+                  1
+                )
+              ]
+            : _vm._e()
         ],
-        1
+        2
       ),
       _vm._v(" "),
       _c(
