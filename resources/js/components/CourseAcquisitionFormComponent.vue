@@ -18,14 +18,21 @@
 					Looks Good.
 				</b-form-valid-feedback>
 			</b-col>
+
 			<b-col class="mt-4">
 				<label for="users-table">Users:</label>
+				<b-form-input
+					v-model="criteria"
+					placeholder="Search"
+					class="mb-2"
+				></b-form-input>
 				<b-table
 					ref="usersTable"
 					selectable
 					select-mode="multi"
 					:items="users"
 					:fields="userFields"
+					:filter="criteria"
 					@row-selected="onRowSelected"
 					responsive="sm"
 					per-page="10"
@@ -93,6 +100,7 @@ export default {
 			course_id: null,
 			selectedUsers: [],
 			currentPage: 1,
+			criteria: '',
 			userFields: [
 				{
 					key: 'selected',

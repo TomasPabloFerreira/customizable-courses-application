@@ -58,8 +58,8 @@ class CourseAcquisitionController extends Controller
 	public function store(Request $request)
 	{
 		$request->validate([
-			'course_id' => 'required',
-			'users' => 'required'
+			'course_id' => 'exists:App\Course,id',
+			'users' => 'exists:App\User,id'
 		]);
 
 		$course_id = $request->input('course_id');
@@ -80,4 +80,3 @@ class CourseAcquisitionController extends Controller
 		);
 	}
 }
-

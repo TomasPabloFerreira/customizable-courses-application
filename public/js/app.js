@@ -1995,6 +1995,13 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['route', 'courses', 'users'],
   data: function data() {
@@ -2002,6 +2009,7 @@ __webpack_require__.r(__webpack_exports__);
       course_id: null,
       selectedUsers: [],
       currentPage: 1,
+      criteria: '',
       userFields: [{
         key: 'selected',
         label: 'selected',
@@ -82555,6 +82563,18 @@ var render = function() {
                 _vm._v("Users:")
               ]),
               _vm._v(" "),
+              _c("b-form-input", {
+                staticClass: "mb-2",
+                attrs: { placeholder: "Search" },
+                model: {
+                  value: _vm.criteria,
+                  callback: function($$v) {
+                    _vm.criteria = $$v
+                  },
+                  expression: "criteria"
+                }
+              }),
+              _vm._v(" "),
               _c("b-table", {
                 ref: "usersTable",
                 attrs: {
@@ -82562,6 +82582,7 @@ var render = function() {
                   "select-mode": "multi",
                   items: _vm.users,
                   fields: _vm.userFields,
+                  filter: _vm.criteria,
                   responsive: "sm",
                   "per-page": "10",
                   "current-page": _vm.currentPage,
