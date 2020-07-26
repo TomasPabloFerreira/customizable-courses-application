@@ -65,6 +65,10 @@ Route::post('/course-acquisition', 'CourseAcquisitionController@store')
 	->name('course.acquisition.store')
 	->middleware('admin');
 
+Route::delete('/course-acquisition/{id}', 'CourseAcquisitionController@destroy')
+	->name('course.acquisition.destroy')
+	->middleware('admin');
+
 // Course Section
 
 Route::get('/course/{courseId}/section', 'CourseSectionController@index')->name('course.section.index')->middleware('admin');

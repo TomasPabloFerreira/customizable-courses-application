@@ -76,4 +76,20 @@ class CourseAcquisitionController extends Controller
 			'Course acquisitions have been created'
 		);
 	}
+
+	
+	/**
+	 * Remove the specified resource from storage.
+	 *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+	public function destroy ($id)
+	{
+		$courseAcquisition = CourseAcquisition::find($id);
+		$courseAcquisition->delete();
+
+		return redirect('/course-acquisition')
+			->with('success', 'Course Acquisition has been deleted');	
+	}
 }

@@ -35,18 +35,6 @@
                 >
 					<template v-slot:cell(actions)="row" >
 						<div style="display: inline-flex;">
-							<b-button
-								size="sm"
-								class="mr-1"
-								variant="success"
-								:href="'course-acquisition/' + row.item.id + '/edit'"
-							>
-								<b-icon-pencil-square
-									width="1em"
-									height="1.4em"
-								></b-icon-pencil-square>
-							</b-button>
-
 							<form
 								:action="'course-acquisition/' + row.item.id"
 								method="post"

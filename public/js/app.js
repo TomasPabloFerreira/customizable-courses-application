@@ -2182,18 +2182,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["courseacquisitions"],
   data: function data() {
@@ -82860,76 +82848,50 @@ var render = function() {
                     key: "cell(actions)",
                     fn: function(row) {
                       return [
-                        _c(
-                          "div",
-                          { staticStyle: { display: "inline-flex" } },
-                          [
-                            _c(
-                              "b-button",
-                              {
-                                staticClass: "mr-1",
+                        _c("div", { staticStyle: { display: "inline-flex" } }, [
+                          _c(
+                            "form",
+                            {
+                              attrs: {
+                                action: "course-acquisition/" + row.item.id,
+                                method: "post"
+                              },
+                              on: { submit: _vm.confirmDelete }
+                            },
+                            [
+                              _c("input", {
                                 attrs: {
-                                  size: "sm",
-                                  variant: "success",
-                                  href:
-                                    "course-acquisition/" +
-                                    row.item.id +
-                                    "/edit"
+                                  type: "hidden",
+                                  name: "_method",
+                                  value: "DELETE"
                                 }
-                              },
-                              [
-                                _c("b-icon-pencil-square", {
-                                  attrs: { width: "1em", height: "1.4em" }
-                                })
-                              ],
-                              1
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "form",
-                              {
-                                attrs: {
-                                  action: "course-acquisition/" + row.item.id,
-                                  method: "post"
-                                },
-                                on: { submit: _vm.confirmDelete }
-                              },
-                              [
-                                _c("input", {
+                              }),
+                              _vm._v(" "),
+                              _c("input", {
+                                attrs: { type: "hidden", name: "_token" },
+                                domProps: { value: _vm.csrf }
+                              }),
+                              _vm._v(" "),
+                              _c(
+                                "b-button",
+                                {
                                   attrs: {
-                                    type: "hidden",
-                                    name: "_method",
-                                    value: "DELETE"
+                                    size: "sm",
+                                    variant: "danger",
+                                    type: "submit"
                                   }
-                                }),
-                                _vm._v(" "),
-                                _c("input", {
-                                  attrs: { type: "hidden", name: "_token" },
-                                  domProps: { value: _vm.csrf }
-                                }),
-                                _vm._v(" "),
-                                _c(
-                                  "b-button",
-                                  {
-                                    attrs: {
-                                      size: "sm",
-                                      variant: "danger",
-                                      type: "submit"
-                                    }
-                                  },
-                                  [
-                                    _c("b-icon-person-dash-fill", {
-                                      attrs: { width: "1em", height: "1.4em" }
-                                    })
-                                  ],
-                                  1
-                                )
-                              ],
-                              1
-                            )
-                          ],
-                          1
-                        )
+                                },
+                                [
+                                  _c("b-icon-person-dash-fill", {
+                                    attrs: { width: "1em", height: "1.4em" }
+                                  })
+                                ],
+                                1
+                              )
+                            ],
+                            1
+                          )
+                        ])
                       ]
                     }
                   }
