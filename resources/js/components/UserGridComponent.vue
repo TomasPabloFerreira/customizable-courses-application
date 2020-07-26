@@ -97,7 +97,6 @@
 							Create User
 						</b-button>
 					</b-col>
-
                     <b-col class="text-right">
                         <p class="mt-3">
 							Current Page: {{ currentPage }} of {{ rows }}

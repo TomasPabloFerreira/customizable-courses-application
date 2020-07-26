@@ -40,6 +40,10 @@ Vue.component(
 	'course-acquisition-grid',
 	require('./components/CourseAcquisitionGridComponent.vue').default
 );
+Vue.component(
+	'course-acquisition-form',
+	require('./components/CourseAcquisitionFormComponent.vue').default
+);
 Vue.component('course-form', require('./components/CourseFormComponent.vue').default);
 Vue.component('course-section-grid', require('./components/CourseSectionGridComponent.vue').default);
 Vue.component('course-section-form', require('./components/CourseSectionFormComponent.vue').default);

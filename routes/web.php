@@ -57,6 +57,14 @@ Route::get('/course-acquisition', 'CourseAcquisitionController@index')
 	->name('course.acquisition.index')
 	->middleware('admin');
 
+Route::get('/course-acquisition/create', 'CourseAcquisitionController@create')
+	->name('course.acquisition.create')
+	->middleware('admin');
+
+Route::post('/course-acquisition', 'CourseAcquisitionController@store')
+	->name('course.acquisition.store')
+	->middleware('admin');
+
 // Course Section
 
 Route::get('/course/{courseId}/section', 'CourseSectionController@index')->name('course.section.index')->middleware('admin');

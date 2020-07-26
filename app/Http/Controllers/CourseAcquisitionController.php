@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Course;
 use App\CourseAcquisition;
+use App\User;
 
 class CourseAcquisitionController extends Controller
 {
@@ -37,6 +38,17 @@ class CourseAcquisitionController extends Controller
 			'courseAcquisitions' => $courseAcquisitions
 		]);
 	}
+
+	public function create ()
+	{
+		$courses = Course::get(['id as value', 'title as text']);
+		$users = User::get(['id', 'name', 'surname']);
+		return view('course.acquisition.form', [
+			'courses' => $courses,
+			'users' => $users
+		]);
+	}
+
 
 }
 
