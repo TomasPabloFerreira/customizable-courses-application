@@ -1908,8 +1908,8 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _this = undefined;
-
+//
+//
 //
 //
 //
@@ -2000,7 +2000,7 @@ var _this = undefined;
   data: function data() {
     return {
       course_id: null,
-      userIds: [],
+      selectedUsers: [],
       currentPage: 1,
       userFields: [{
         key: 'selected',
@@ -2023,22 +2023,27 @@ var _this = undefined;
       return this.course_id != null;
     },
     validUsers: function validUsers() {
-      return this.userIds.length > 0;
+      return this.selectedUsers.length > 0;
     },
     usersCount: function usersCount() {
       return this.users.length;
+    },
+    selectedUserIds: function selectedUserIds() {
+      return this.selectedUsers.map(function (x) {
+        return x.id;
+      });
     }
   },
   methods: {
     validateForm: function validateForm(e) {
-      if (_this.validCourse && _this.validUser) {
+      if (this.validCourse && this.validUsers) {
         return true;
       }
 
       e.preventDefault();
     },
     onRowSelected: function onRowSelected(items) {
-      this.userIds = items;
+      this.selectedUsers = items;
     },
     selectAllRows: function selectAllRows() {
       this.$refs.usersTable.selectAllRows();
@@ -82515,7 +82520,8 @@ var render = function() {
                 attrs: {
                   options: _vm.courses,
                   state: _vm.validCourse,
-                  id: "course-selector"
+                  id: "course-selector",
+                  name: "course_id"
                 },
                 model: {
                   value: _vm.course_id,
@@ -82599,6 +82605,27 @@ var render = function() {
           _c(
             "b-col",
             [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.selectedUserIds,
+                    expression: "selectedUserIds"
+                  }
+                ],
+                attrs: { type: "hidden", name: "users" },
+                domProps: { value: _vm.selectedUserIds },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.selectedUserIds = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
               _c("input", { attrs: { type: "hidden" } }),
               _vm._v(" "),
               _c(

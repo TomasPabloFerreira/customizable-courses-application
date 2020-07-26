@@ -23,11 +23,11 @@ class CourseAcquisition extends Model
 
 	public function course()
 	{
-		return $this->hasOne('App\Course');
+		return $this->belongsTo('App\Course');
 	}
 
 	public function user()
 	{
-		return $this->hasOne('App\User');
+		return $this->belongsTo('App\User');
 	}
 }

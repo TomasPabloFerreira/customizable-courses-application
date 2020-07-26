@@ -9,6 +9,7 @@
 					:options="courses"
 					:state="validCourse"
 					id="course-selector"
+					name="course_id"
 				></b-form-select>
 				<b-form-invalid-feedback :state="validCourse">
 					Please select a course.
@@ -44,6 +45,7 @@
 				</b-table>
 			</b-col>
 			<b-col>
+				<input type="hidden" name="users" v-model="selectedUserIds">
 				<input type="hidden" />
 				<b-form-invalid-feedback :state="validUsers">
 					Please select at least one user.
@@ -89,7 +91,7 @@ export default {
 	data: () => {
 		return {
 			course_id: null,
-			userIds: [],
+			selectedUsers: [],
 			currentPage: 1,
 			userFields: [
 				{
@@ -116,24 +118,27 @@ export default {
 			return this.course_id != null;
 		},
 		validUsers() {
-			return this.userIds.length > 0;
+			return this.selectedUsers.length > 0;
 		},
 		usersCount() {
 			return this.users.length;
+		},
+		selectedUserIds() {
+			return this.selectedUsers.map(x => x.id);
 		}
 	},
 	methods: {
-		validateForm: (e) => {
+		validateForm: function (e) {
 			if(
 				this.validCourse
-				&& this.validUser
+				&& this.validUsers
 			) {
 				return true;
 			}
 			e.preventDefault();
 		},
 		onRowSelected(items) {
-			this.userIds = items;
+			this.selectedUsers = items;
 		},
       selectAllRows() {
         this.$refs.usersTable.selectAllRows();

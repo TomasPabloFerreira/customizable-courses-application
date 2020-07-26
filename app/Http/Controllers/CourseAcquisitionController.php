@@ -48,7 +48,36 @@ class CourseAcquisitionController extends Controller
 			'users' => $users
 		]);
 	}
+	
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function store(Request $request)
+	{
+		$request->validate([
+			'course_id' => 'required',
+			'users' => 'required'
+		]);
 
+		$course_id = $request->input('course_id');
+		$user_ids_str = $request->input('users');
+		$user_ids = explode (',', $user_ids_str, 3000);
 
+		foreach($user_ids as $user_id) {
+			$courseAcquisition = new CourseAcquisition([
+				'course_id' => $course_id,
+				'user_id' => $user_id
+			]);
+			$courseAcquisition->save();
+		}
+
+		return redirect('/course-acquisition')->with(
+			'success',
+			'Course acquisitions have been created'
+		);
+	}
 }
 
