@@ -30,7 +30,7 @@
 					ref="usersTable"
 					selectable
 					select-mode="multi"
-					:items="users"
+					:items="filteredUsers"
 					:fields="userFields"
 					:filter="criteria"
 					@row-selected="onRowSelected"
@@ -94,7 +94,7 @@
 
 <script>
 export default {
-	props: ['route', 'courses', 'users'],
+	props: ['route', 'courses', 'users', 'courseacquisitions'],
 	data: () => {
 		return {
 			course_id: null,
@@ -129,10 +129,24 @@ export default {
 			return this.selectedUsers.length > 0;
 		},
 		usersCount() {
-			return this.users.length;
+			return this.filteredUsers.length;
 		},
 		selectedUserIds() {
 			return this.selectedUsers.map(x => x.id);
+		},
+		usersWhoAdquiredTheCourse() {
+			if(!this.course_id) return [];
+			return this.courseacquisitions.reduce((acc, acquisition) => {
+				return (acquisition.course_id == this.course_id)
+					? acc.concat(acquisition.user_id)
+					: acc;
+			}, []);
+		},
+		filteredUsers() {
+			if(!this.course_id) return [];
+			return this.users.filter(user => {
+				return !this.usersWhoAdquiredTheCourse.includes(user.id);
+			});
 		}
 	},
 	methods: {

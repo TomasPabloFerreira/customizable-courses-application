@@ -17,6 +17,7 @@
 				route="{{route('course.acquisition.store')}}"
 				:courses='@json($courses)'
 				:users='@json($users)'
+				:courseacquisitions='@json($courseAcquisitions)'
 			>
 			</course-acquisition-form>
 		</b-col>

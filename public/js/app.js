@@ -2003,7 +2003,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['route', 'courses', 'users'],
+  props: ['route', 'courses', 'users', 'courseacquisitions'],
   data: function data() {
     return {
       course_id: null,
@@ -2034,11 +2034,27 @@ __webpack_require__.r(__webpack_exports__);
       return this.selectedUsers.length > 0;
     },
     usersCount: function usersCount() {
-      return this.users.length;
+      return this.filteredUsers.length;
     },
     selectedUserIds: function selectedUserIds() {
       return this.selectedUsers.map(function (x) {
         return x.id;
+      });
+    },
+    usersWhoAdquiredTheCourse: function usersWhoAdquiredTheCourse() {
+      var _this = this;
+
+      if (!this.course_id) return [];
+      return this.courseacquisitions.reduce(function (acc, acquisition) {
+        return acquisition.course_id == _this.course_id ? acc.concat(acquisition.user_id) : acc;
+      }, []);
+    },
+    filteredUsers: function filteredUsers() {
+      var _this2 = this;
+
+      if (!this.course_id) return [];
+      return this.users.filter(function (user) {
+        return !_this2.usersWhoAdquiredTheCourse.includes(user.id);
       });
     }
   },
@@ -82580,7 +82596,7 @@ var render = function() {
                 attrs: {
                   selectable: "",
                   "select-mode": "multi",
-                  items: _vm.users,
+                  items: _vm.filteredUsers,
                   fields: _vm.userFields,
                   filter: _vm.criteria,
                   responsive: "sm",

@@ -26,13 +26,7 @@ class CourseAcquisitionController extends Controller
 	 */
 	public function index()
 	{
-		$courseAcquisitions = CourseAcquisition::with(['course', 'user'])
-			->get([
-				'id',
-				'user_id',
-				'course_id',
-				'added_on'
-			]);
+		$courseAcquisitions = CourseAcquisition::with(['course', 'user'])->get();
 
 		return view('course.acquisition.grid', [
 			'courseAcquisitions' => $courseAcquisitions
@@ -43,14 +37,17 @@ class CourseAcquisitionController extends Controller
 	{
 		$courses = Course::get(['id as value', 'title as text']);
 		$users = User::get(['id', 'name', 'surname']);
+		$courseAcquisitions = CourseAcquisition::get();
+
 		return view('course.acquisition.form', [
 			'courses' => $courses,
-			'users' => $users
+			'users' => $users,
+			'courseAcquisitions' => $courseAcquisitions
 		]);
 	}
 	
 	/**
-	 * Store a newly created resource in storage.
+	 * Store a newly created resources in storage.
 	 *
 	 * @param  \Illuminate\Http\Request  $request
 	 * @return \Illuminate\Http\Response
