@@ -43,7 +43,9 @@ Route::get('/course/create', 'CourseController@create')->name('course.create')->
 
 Route::post('/course', 'CourseController@store')->name('course.store')->middleware('admin');
 
-Route::get('/course/{id}', 'CourseController@show')->name('course.show');
+Route::get('/course/{id}', 'CourseController@show')
+	->name('course.show')
+	->middleware('course.access');
 
 Route::get('/course/{id}/edit', 'CourseController@edit')->name('course.edit')->middleware('admin');
 
@@ -91,7 +93,12 @@ Route::get('/course/{courseId}/section/{sectionId}/lesson/create', 'LessonContro
 
 Route::post('/course/{courseId}/section/{sectionId}/lesson', 'LessonController@store')->name('lesson.store')->middleware('admin');
 
-Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}', 'LessonController@show')->name('lesson.show');
+Route::get(
+	'/course/{courseId}/section/{sectionId}/lesson/{id}',
+	'LessonController@show'
+)
+	->name('lesson.show')
+	->middleware('course.access');
 
 Route::get('/course/{courseId}/section/{sectionId}/lesson/{id}/edit', 'LessonController@edit')->name('lesson.edit')->middleware('admin');
 
