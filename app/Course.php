@@ -29,4 +29,7 @@ class Course extends Model
 	{
 		return $this->hasManyThrough('App\Lesson', 'App\CourseSection');
 	}
+	public function acquisitions () {
+		return $this->hasMany('App\CourseAcquisition');
+	}
 }
