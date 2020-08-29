@@ -18,6 +18,4 @@
 	</b-row>
 </b-container>
 
-</b-container>
-
 @endsection
