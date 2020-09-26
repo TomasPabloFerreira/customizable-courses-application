@@ -62,7 +62,7 @@ export default {
 		}
 	},
 	methods: {
-		validateForm: (e) => {
+		validateForm: function (e) {
 			if(
 				this.validTitle
 			) {

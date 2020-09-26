@@ -2234,9 +2234,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _this = undefined;
-
-//
 //
 //
 //
@@ -2310,14 +2307,13 @@ var _this = undefined;
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['route', 'course'],
+  props: ['course'],
   data: function data() {
     return {
       editing: false,
       title: '',
       description: '',
-      imageSource: '',
-      csrf: document.head.querySelector('meta[name="csrf-token"]').content
+      imageSource: ''
     };
   },
   computed: {
@@ -2341,7 +2337,7 @@ var _this = undefined;
   },
   methods: {
     validateForm: function validateForm(e) {
-      if (_this.validTitle && _this.validDescription && _this.validImageSource) {
+      if (this.validTitle && this.validDescription && this.validImageSource) {
         return true;
       }
 
@@ -2532,8 +2528,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-var _this = undefined;
-
 //
 //
 //
@@ -2598,7 +2592,7 @@ var _this = undefined;
   },
   methods: {
     validateForm: function validateForm(e) {
-      if (_this.validTitle) {
+      if (this.validTitle) {
         return true;
       }
 
@@ -83019,11 +83013,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "b-form",
-    {
-      attrs: { method: "post", action: _vm.route },
-      on: { submit: _vm.validateForm }
-    },
+    "div",
     [
       _c(
         "b-row",
@@ -83182,12 +83172,7 @@ var render = function() {
         ? _c("input", {
             attrs: { type: "hidden", name: "_method", value: "PUT" }
           })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "hidden", name: "_token" },
-        domProps: { value: _vm.csrf }
-      })
+        : _vm._e()
     ],
     1
   )
