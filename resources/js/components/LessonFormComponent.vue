@@ -1,5 +1,5 @@
 <template>
-	<b-form @submit="validateForm" method="post" :action="route">
+	<div>
 		<b-row cols="1" cols-md="2">
 			<b-col class="mt-4">
 				<label for="title">Title</label>
@@ -63,20 +63,18 @@
 			</b-col>
 		</b-row>
 		<input type="hidden" name="_method" value="PUT" v-if="editing">
-		<input type="hidden" name="_token" :value="csrf">
-	</b-form>
+	</div>
 </template>
 
 <script>
 export default {
-	props: ['route', 'course_id', 'section_id', 'lesson'],
+	props: ['course_id', 'section_id', 'lesson'],
 	data: () => {
 		return {
 			editing: false,
 			title: '',
 			videoSource: '',
 			duration: null,
-			csrf: document.head.querySelector('meta[name="csrf-token"]').content
 		};
 	},
 	computed: {

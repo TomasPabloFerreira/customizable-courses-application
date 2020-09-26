@@ -1,5 +1,5 @@
 <template>
-	<b-form @submit="validateForm" method="post" :action="route">
+	<div>
 		<b-row cols="12" col-md="6">
 			<b-col>
 				<label for="title">Title</label>
@@ -33,21 +33,19 @@
 			</b-col>
 		</b-row>
 		<input type="hidden" name="_method" value="PUT" v-if="editing">
-		<input type="hidden" name="_token" :value="csrf">
-	</b-form>
+	</div>
 </template>
 
 
 <script>
 export default {
-	props: ['route', 'course_id', 'section'],
+	props: ['course_id', 'section'],
 	data: () => {
 		return {
 			editing: false,
 			title: '',
 			description: '',
 			imageSource: '',
-			csrf: document.head.querySelector('meta[name="csrf-token"]').content
 		};
 	},
 	computed: {

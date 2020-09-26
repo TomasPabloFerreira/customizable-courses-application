@@ -1,5 +1,5 @@
 <template>
-	<b-form @submit="validateForm" method="post" :action="route">
+	<div>
 		<!-- Course selector -->
 		<b-row cols="1">
 			<b-col>
@@ -90,14 +90,13 @@
 				</b-button>
 			</b-col>
 		</b-row>
-		<input type="hidden" name="_token" :value="csrf">
-	</b-form>
+	</div>
 </template>
 
 
 <script>
 export default {
-	props: ['route', 'courses', 'users', 'courseacquisitions'],
+	props: ['courses', 'users', 'courseacquisitions'],
 	data: () => {
 		return {
 			course_id: null,
@@ -121,7 +120,6 @@ export default {
 					sortable: true,
 				},
 			],
-			csrf: document.head.querySelector('meta[name="csrf-token"]').content
 		};
 	},
 	computed: {

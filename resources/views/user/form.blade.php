@@ -20,19 +20,30 @@
 	<b-row class="justify-content-md-center mt-4">
 		<b-col cols="12">
 			@isset($user)
-				<user-form
-					route="{{route('user.update', ['id' => $user->id])}}"
-					:roles='@json($roles)'
-					:user='@json($user)'
+				<form
+					action="{{route('user.update', ['id' => $user->id])}}"
+					@submit="(e) => { this.$refs.updateform.validateForm(e) }"
+					method="POST"
 				>
-				</user-form>
+					@csrf
+					<user-form
+						:roles='@json($roles)'
+						:user='@json($user)'
+						ref="updateform"
+					>
+					</user-form>
+				</form>
 			@endisset
 
 			@empty($user)
-				<user-form
-					route="{{route('user.store')}}"
-					:roles='@json($roles)'
-				></user-form>
+				<form
+					action="{{route('user.store')}}"
+					@submit="(e) => { this.$refs.createform.validateForm(e) }"
+					method="POST"
+				>
+					@csrf
+					<user-form :roles='@json($roles)' ref="createform"></user-form>
+				</form>
 			@endempty
 		</b-col>
 	</b-row>

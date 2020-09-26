@@ -20,25 +20,41 @@
 	<b-row class="justify-content-md-center mt-4">
 		<b-col cols="12">
 			@isset($section)
-				<course-section-form
-					route="{{route('course.section.update',[
-						'courseId' => $courseId,
-						'id' => $section->id
-					])}}"
-					:course_id="{{ $courseId }}"
-					:section='@json($section)'
+				<form
+					action="
+						{{route('course.section.update',[
+							'courseId' => $courseId,
+							'id' => $section->id
+						])}}
+					"
+					@submit="(e) => { this.$refs.updateform.validateForm(e) }"
+					method="POST"
 				>
-				</course-section-form>
+					@csrf
+					<course-section-form
+						:course_id="{{ $courseId }}"
+						:section='@json($section)'
+						ref="updateform"
+					>
+					</course-section-form>
+				</form>
 			@endisset
 
 			@empty($section)
-				<course-section-form
-					route="{{route('course.section.store',[
-						'courseId' => $courseId
-					])}}"	
-					:course_id="{{ $courseId }}"
+				<form
+					action="
+						{{route('course.section.store',[ 'courseId' => $courseId ])}}
+					"
+					@submit="(e) => { this.$refs.createform.validateForm(e) }"
+					method="POST"
 				>
-				</course-section-form>
+					@csrf
+					<course-section-form
+						:course_id="{{ $courseId }}"
+						ref="createform"
+					>
+					</course-section-form>
+				</form>
 			@endempty
 		</b-col>
 	</b-row>

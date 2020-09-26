@@ -13,13 +13,20 @@
 	</b-row>
 	<b-row class="justify-content-md-center mt-4">
 		<b-col cols="12">
-			<course-acquisition-form
-				route="{{route('course.acquisition.store')}}"
-				:courses='@json($courses)'
-				:users='@json($users)'
-				:courseacquisitions='@json($courseAcquisitions)'
+			<form
+				action="{{route('course.acquisition.store')}}"
+				@submit="(e) => { this.$refs.createform.validateForm(e) }"
+				method="POST"
 			>
-			</course-acquisition-form>
+				@csrf
+				<course-acquisition-form
+					:courses='@json($courses)'
+					:users='@json($users)'
+					:courseacquisitions='@json($courseAcquisitions)'
+					ref="createform"
+				>
+				</course-acquisition-form>
+			</form>
 		</b-col>
 	</b-row>
 

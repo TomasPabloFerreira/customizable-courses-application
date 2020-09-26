@@ -20,29 +20,47 @@
 	<b-row class="justify-content-md-center mt-4">
 		<b-col cols="12">
 			@isset($lesson)
-				<lesson-form
-					route="{{route('lesson.update',[
-						'courseId' => $courseId,
-						'sectionId' => $sectionId,
-						'id' => $lesson->id
-					])}}"
-					:course_id="{{ $courseId }}"
-					:section_id="{{ $sectionId }}"
-					:lesson='@json($lesson)'
+				<form
+					action="
+						{{route('lesson.update',[
+							'courseId' => $courseId,
+							'sectionId' => $sectionId,
+							'id' => $lesson->id
+						])}}
+					"
+					@submit="(e) => { this.$refs.updateform.validateForm(e) }"
+					method="POST"
 				>
-				</lesson-form>
+					@csrf
+					<lesson-form
+						:course_id="{{ $courseId }}"
+						:section_id="{{ $sectionId }}"
+						:lesson='@json($lesson)'
+						ref="updateform"
+					>
+					</lesson-form>
+				</form>
 			@endisset
 
 			@empty($lesson)
-				<lesson-form
-					route="{{route('lesson.store',[
-						'courseId' => $courseId,
-						'sectionId' => $sectionId
-					])}}"
-					:course_id="{{ $courseId }}"
-					:section_id="{{ $sectionId }}"
+				<form
+					action="
+						{{route('lesson.store',[
+							'courseId' => $courseId,
+							'sectionId' => $sectionId
+						])}}
+					"
+					@submit="(e) => { this.$refs.createform.validateForm(e) }"
+					method="POST"
 				>
-				</lesson-form>
+					@csrf
+					<lesson-form
+						:course_id="{{ $courseId }}"
+						:section_id="{{ $sectionId }}"
+						ref="createform"
+					>
+					</lesson-form>
+				</form>
 			@endempty
 		</b-col>
 	</b-row>

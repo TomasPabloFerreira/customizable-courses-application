@@ -2004,9 +2004,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['route', 'courses', 'users', 'courseacquisitions'],
+  props: ['courses', 'users', 'courseacquisitions'],
   data: function data() {
     return {
       course_id: null,
@@ -2025,8 +2024,7 @@ __webpack_require__.r(__webpack_exports__);
         key: "surname",
         label: "Surname",
         sortable: true
-      }],
-      csrf: document.head.querySelector('meta[name="csrf-token"]').content
+      }]
     };
   },
   computed: {
@@ -2567,16 +2565,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['route', 'course_id', 'section'],
+  props: ['course_id', 'section'],
   data: function data() {
     return {
       editing: false,
       title: '',
       description: '',
-      imageSource: '',
-      csrf: document.head.querySelector('meta[name="csrf-token"]').content
+      imageSource: ''
     };
   },
   computed: {
@@ -2885,16 +2881,14 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['route', 'course_id', 'section_id', 'lesson'],
+  props: ['course_id', 'section_id', 'lesson'],
   data: function data() {
     return {
       editing: false,
       title: '',
       videoSource: '',
-      duration: null,
-      csrf: document.head.querySelector('meta[name="csrf-token"]').content
+      duration: null
     };
   },
   computed: {
@@ -3300,11 +3294,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['route', 'roles', 'user'],
+  props: ['roles', 'user'],
   data: function data() {
     return {
       editing: false,
@@ -3313,8 +3304,7 @@ __webpack_require__.r(__webpack_exports__);
       email: '',
       password: '',
       passwordConfirmation: '',
-      selectedRole: null,
-      csrf: document.head.querySelector('meta[name="csrf-token"]').content
+      selectedRole: null
     };
   },
   computed: {
@@ -82508,11 +82498,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "b-form",
-    {
-      attrs: { method: "post", action: _vm.route },
-      on: { submit: _vm.validateForm }
-    },
+    "div",
     [
       _c(
         "b-row",
@@ -82761,12 +82747,7 @@ var render = function() {
           )
         ],
         1
-      ),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "hidden", name: "_token" },
-        domProps: { value: _vm.csrf }
-      })
+      )
     ],
     1
   )
@@ -83458,11 +83439,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "b-form",
-    {
-      attrs: { method: "post", action: _vm.route },
-      on: { submit: _vm.validateForm }
-    },
+    "div",
     [
       _c(
         "b-row",
@@ -83542,12 +83519,7 @@ var render = function() {
         ? _c("input", {
             attrs: { type: "hidden", name: "_method", value: "PUT" }
           })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "hidden", name: "_token" },
-        domProps: { value: _vm.csrf }
-      })
+        : _vm._e()
     ],
     1
   )
@@ -83897,11 +83869,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "b-form",
-    {
-      attrs: { method: "post", action: _vm.route },
-      on: { submit: _vm.validateForm }
-    },
+    "div",
     [
       _c(
         "b-row",
@@ -84055,12 +84023,7 @@ var render = function() {
         ? _c("input", {
             attrs: { type: "hidden", name: "_method", value: "PUT" }
           })
-        : _vm._e(),
-      _vm._v(" "),
-      _c("input", {
-        attrs: { type: "hidden", name: "_token" },
-        domProps: { value: _vm.csrf }
-      })
+        : _vm._e()
     ],
     1
   )
@@ -84492,313 +84455,280 @@ var render = function() {
     "div",
     [
       _c(
-        "b-form",
-        {
-          attrs: { method: "post", action: _vm.route },
-          on: { submit: _vm.validateForm }
-        },
+        "b-row",
+        { attrs: { cols: "1", "cols-sm": "2", "cols-lg": "3" } },
         [
           _c(
-            "b-row",
-            { attrs: { cols: "1", "cols-sm": "2", "cols-lg": "3" } },
+            "b-col",
+            { staticClass: "mt-3" },
             [
+              _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
+              _vm._v(" "),
+              _c("b-input", {
+                attrs: { state: _vm.validName, id: "name", name: "name" },
+                model: {
+                  value: _vm.name,
+                  callback: function($$v) {
+                    _vm.name = $$v
+                  },
+                  expression: "name"
+                }
+              }),
+              _vm._v(" "),
               _c(
-                "b-col",
-                { staticClass: "mt-3" },
+                "b-form-invalid-feedback",
+                { attrs: { state: _vm.validName } },
                 [
-                  _c("label", { attrs: { for: "name" } }, [_vm._v("Name")]),
-                  _vm._v(" "),
-                  _c("b-input", {
-                    attrs: { state: _vm.validName, id: "name", name: "name" },
-                    model: {
-                      value: _vm.name,
-                      callback: function($$v) {
-                        _vm.name = $$v
-                      },
-                      expression: "name"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-invalid-feedback",
-                    { attrs: { state: _vm.validName } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\tUser name must be 3-32 characters long.\n\t\t\t\t"
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-valid-feedback",
-                    { attrs: { state: _vm.validName } },
-                    [_vm._v("\n\t\t\t\t\tLooks Good.\n\t\t\t\t")]
+                  _vm._v(
+                    "\n\t\t\t\tUser name must be 3-32 characters long.\n\t\t\t"
                   )
-                ],
-                1
+                ]
+              ),
+              _vm._v(" "),
+              _c("b-form-valid-feedback", { attrs: { state: _vm.validName } }, [
+                _vm._v("\n\t\t\t\tLooks Good.\n\t\t\t")
+              ])
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-col",
+            { staticClass: "mt-3" },
+            [
+              _c("label", { attrs: { for: "surname" } }, [_vm._v("Surname")]),
+              _vm._v(" "),
+              _c("b-input", {
+                attrs: {
+                  state: _vm.validSurname,
+                  id: "surname",
+                  name: "surname"
+                },
+                model: {
+                  value: _vm.surname,
+                  callback: function($$v) {
+                    _vm.surname = $$v
+                  },
+                  expression: "surname"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "b-form-invalid-feedback",
+                { attrs: { state: _vm.validSurname } },
+                [
+                  _vm._v(
+                    "\n\t\t\t\tUser surname must be 3-32 characters long.\n\t\t\t"
+                  )
+                ]
               ),
               _vm._v(" "),
               _c(
-                "b-col",
-                { staticClass: "mt-3" },
-                [
-                  _c("label", { attrs: { for: "surname" } }, [
-                    _vm._v("Surname")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-input", {
-                    attrs: {
-                      state: _vm.validSurname,
-                      id: "surname",
-                      name: "surname"
-                    },
-                    model: {
-                      value: _vm.surname,
-                      callback: function($$v) {
-                        _vm.surname = $$v
-                      },
-                      expression: "surname"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-invalid-feedback",
-                    { attrs: { state: _vm.validSurname } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\tUser surname must be 3-32 characters long.\n\t\t\t\t"
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-valid-feedback",
-                    { attrs: { state: _vm.validSurname } },
-                    [_vm._v("\n\t\t\t\t\tLooks Good.\n\t\t\t\t")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { staticClass: "mt-3" },
-                [
-                  _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
-                  _vm._v(" "),
-                  _c("b-input", {
-                    attrs: {
-                      state: _vm.validEmail,
-                      id: "email",
-                      name: "email",
-                      type: "email"
-                    },
-                    model: {
-                      value: _vm.email,
-                      callback: function($$v) {
-                        _vm.email = $$v
-                      },
-                      expression: "email"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-invalid-feedback",
-                    { attrs: { state: _vm.validEmail } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\tEnter a valid email address.\n\t\t\t\t"
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-valid-feedback",
-                    { attrs: { state: _vm.validEmail } },
-                    [_vm._v("\n\t\t\t\t\tLooks Good.\n\t\t\t\t")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { staticClass: "mt-3" },
-                [
-                  _c("label", { attrs: { for: "roleSelector" } }, [
-                    _vm._v("Role")
-                  ]),
-                  _vm._v(" "),
-                  _c("b-form-select", {
-                    attrs: {
-                      options: _vm.roles,
-                      state: _vm.roleIsSelected,
-                      id: "role",
-                      name: "role"
-                    },
-                    model: {
-                      value: _vm.selectedRole,
-                      callback: function($$v) {
-                        _vm.selectedRole = $$v
-                      },
-                      expression: "selectedRole"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-invalid-feedback",
-                    { attrs: { state: _vm.roleIsSelected } },
-                    [_vm._v("\n\t\t\t\t\tSelect a role.\n\t\t\t\t")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-valid-feedback",
-                    { attrs: { state: _vm.roleIsSelected } },
-                    [_vm._v("\n\t\t\t\t\tLooks Good.\n\t\t\t\t")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { staticClass: "mt-3" },
-                [
-                  _vm.editing
-                    ? _c("label", { attrs: { for: "password" } }, [
-                        _vm._v("New Password")
-                      ])
-                    : _c("label", { attrs: { for: "password" } }, [
-                        _vm._v("Password")
-                      ]),
-                  _vm._v(" "),
-                  _c("b-input", {
-                    attrs: {
-                      state: _vm.validPassword,
-                      id: "password",
-                      name: "password",
-                      type: "password"
-                    },
-                    model: {
-                      value: _vm.password,
-                      callback: function($$v) {
-                        _vm.password = $$v
-                      },
-                      expression: "password"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-invalid-feedback",
-                    { attrs: { state: _vm.validPassword } },
-                    [
-                      _vm._v(
-                        "\n\t\t\t\t\tUser password must be 8-64 characters long.\n\t\t\t\t"
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-valid-feedback",
-                    { attrs: { state: _vm.validPassword } },
-                    [_vm._v("\n\t\t\t\t\tLooks Good.\n\t\t\t\t")]
-                  )
-                ],
-                1
-              ),
-              _vm._v(" "),
-              _c(
-                "b-col",
-                { staticClass: "mt-3" },
-                [
-                  _vm.editing
-                    ? _c("label", { attrs: { for: "passwordConfirmation" } }, [
-                        _vm._v("\n\t\t\t\t\tConfirm New Password\n\t\t\t\t")
-                      ])
-                    : _c("label", { attrs: { for: "passwordConfirmation" } }, [
-                        _vm._v("\n\t\t\t\t\tConfirm Password\n\t\t\t\t")
-                      ]),
-                  _vm._v(" "),
-                  _c("b-input", {
-                    attrs: {
-                      state: _vm.passwordsMatch,
-                      id: "passwordConfirmation",
-                      type: "password"
-                    },
-                    model: {
-                      value: _vm.passwordConfirmation,
-                      callback: function($$v) {
-                        _vm.passwordConfirmation = $$v
-                      },
-                      expression: "passwordConfirmation"
-                    }
-                  }),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-invalid-feedback",
-                    { attrs: { state: _vm.passwordsMatch } },
-                    [_vm._v("\n\t\t\t\t\tPasswords do not match.\n\t\t\t\t")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-form-valid-feedback",
-                    { attrs: { state: _vm.passwordsMatch } },
-                    [_vm._v("\n\t\t\t\t\tLooks Good.\n\t\t\t\t")]
-                  )
-                ],
-                1
+                "b-form-valid-feedback",
+                { attrs: { state: _vm.validSurname } },
+                [_vm._v("\n\t\t\t\tLooks Good.\n\t\t\t")]
               )
             ],
             1
           ),
           _vm._v(" "),
           _c(
-            "b-row",
-            { staticClass: "mt-4" },
+            "b-col",
+            { staticClass: "mt-3" },
             [
+              _c("label", { attrs: { for: "email" } }, [_vm._v("Email")]),
+              _vm._v(" "),
+              _c("b-input", {
+                attrs: {
+                  state: _vm.validEmail,
+                  id: "email",
+                  name: "email",
+                  type: "email"
+                },
+                model: {
+                  value: _vm.email,
+                  callback: function($$v) {
+                    _vm.email = $$v
+                  },
+                  expression: "email"
+                }
+              }),
+              _vm._v(" "),
               _c(
-                "b-col",
-                { staticClass: "text-right" },
-                [
-                  _c(
-                    "b-button",
-                    {
-                      attrs: {
-                        variant: "secondary",
-                        href: "/user",
-                        size: "big"
-                      }
-                    },
-                    [_vm._v("\n\t\t\t\t\tCancel\n\t\t\t\t")]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "b-button",
-                    {
-                      attrs: { variant: "primary", size: "big", type: "submit" }
-                    },
-                    [_vm._v("\n\t\t\t\t\tConfirm\n\t\t\t\t")]
-                  )
-                ],
-                1
+                "b-form-invalid-feedback",
+                { attrs: { state: _vm.validEmail } },
+                [_vm._v("\n\t\t\t\tEnter a valid email address.\n\t\t\t")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-form-valid-feedback",
+                { attrs: { state: _vm.validEmail } },
+                [_vm._v("\n\t\t\t\tLooks Good.\n\t\t\t")]
               )
             ],
             1
           ),
           _vm._v(" "),
-          _vm.editing
-            ? _c("input", {
-                attrs: { type: "hidden", name: "_method", value: "PUT" }
-              })
-            : _vm._e(),
+          _c(
+            "b-col",
+            { staticClass: "mt-3" },
+            [
+              _c("label", { attrs: { for: "roleSelector" } }, [_vm._v("Role")]),
+              _vm._v(" "),
+              _c("b-form-select", {
+                attrs: {
+                  options: _vm.roles,
+                  state: _vm.roleIsSelected,
+                  id: "role",
+                  name: "role"
+                },
+                model: {
+                  value: _vm.selectedRole,
+                  callback: function($$v) {
+                    _vm.selectedRole = $$v
+                  },
+                  expression: "selectedRole"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "b-form-invalid-feedback",
+                { attrs: { state: _vm.roleIsSelected } },
+                [_vm._v("\n\t\t\t\tSelect a role.\n\t\t\t")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-form-valid-feedback",
+                { attrs: { state: _vm.roleIsSelected } },
+                [_vm._v("\n\t\t\t\tLooks Good.\n\t\t\t")]
+              )
+            ],
+            1
+          ),
           _vm._v(" "),
-          _c("input", {
-            attrs: { type: "hidden", name: "_token" },
-            domProps: { value: _vm.csrf }
-          })
+          _c(
+            "b-col",
+            { staticClass: "mt-3" },
+            [
+              _vm.editing
+                ? _c("label", { attrs: { for: "password" } }, [
+                    _vm._v("New Password")
+                  ])
+                : _c("label", { attrs: { for: "password" } }, [
+                    _vm._v("Password")
+                  ]),
+              _vm._v(" "),
+              _c("b-input", {
+                attrs: {
+                  state: _vm.validPassword,
+                  id: "password",
+                  name: "password",
+                  type: "password"
+                },
+                model: {
+                  value: _vm.password,
+                  callback: function($$v) {
+                    _vm.password = $$v
+                  },
+                  expression: "password"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "b-form-invalid-feedback",
+                { attrs: { state: _vm.validPassword } },
+                [
+                  _vm._v(
+                    "\n\t\t\t\tUser password must be 8-64 characters long.\n\t\t\t"
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-form-valid-feedback",
+                { attrs: { state: _vm.validPassword } },
+                [_vm._v("\n\t\t\t\tLooks Good.\n\t\t\t")]
+              )
+            ],
+            1
+          ),
+          _vm._v(" "),
+          _c(
+            "b-col",
+            { staticClass: "mt-3" },
+            [
+              _vm.editing
+                ? _c("label", { attrs: { for: "passwordConfirmation" } }, [
+                    _vm._v("\n\t\t\t\tConfirm New Password\n\t\t\t")
+                  ])
+                : _c("label", { attrs: { for: "passwordConfirmation" } }, [
+                    _vm._v("\n\t\t\t\tConfirm Password\n\t\t\t")
+                  ]),
+              _vm._v(" "),
+              _c("b-input", {
+                attrs: {
+                  state: _vm.passwordsMatch,
+                  id: "passwordConfirmation",
+                  type: "password"
+                },
+                model: {
+                  value: _vm.passwordConfirmation,
+                  callback: function($$v) {
+                    _vm.passwordConfirmation = $$v
+                  },
+                  expression: "passwordConfirmation"
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "b-form-invalid-feedback",
+                { attrs: { state: _vm.passwordsMatch } },
+                [_vm._v("\n\t\t\t\tPasswords do not match.\n\t\t\t")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-form-valid-feedback",
+                { attrs: { state: _vm.passwordsMatch } },
+                [_vm._v("\n\t\t\t\tLooks Good.\n\t\t\t")]
+              )
+            ],
+            1
+          )
         ],
         1
-      )
+      ),
+      _vm._v(" "),
+      _c(
+        "b-row",
+        { staticClass: "mt-4" },
+        [
+          _c(
+            "b-col",
+            { staticClass: "text-right" },
+            [
+              _c(
+                "b-button",
+                { attrs: { variant: "secondary", href: "/user", size: "big" } },
+                [_vm._v("\n\t\t\t\tCancel\n\t\t\t")]
+              ),
+              _vm._v(" "),
+              _c(
+                "b-button",
+                { attrs: { variant: "primary", size: "big", type: "submit" } },
+                [_vm._v("\n\t\t\t\tConfirm\n\t\t\t")]
+              )
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.editing
+        ? _c("input", {
+            attrs: { type: "hidden", name: "_method", value: "PUT" }
+          })
+        : _vm._e()
     ],
     1
   )
